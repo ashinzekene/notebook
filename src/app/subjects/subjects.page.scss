@@ -1,0 +1,9 @@
+ion-card.subject {
+  background-color: var(--subject-background-color);
+  box-shadow: 1px 1px 10px 0px rgba($color: #999999, $alpha: 0.4);
+  margin-bottom: 20px;
+  border-radius: 12px;
+  ion-card-title {
+    font-weight: 700;
+  }
+}
