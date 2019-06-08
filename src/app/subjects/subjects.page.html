@@ -1,25 +1,22 @@
 <ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-menu-button></ion-menu-button>
-  </ion-buttons>
   <ion-title>
     Subjects
   </ion-title>
   <ion-buttons slot="secondary">
     <ion-button>
-      <ion-icon slot="icon-only" name="add"></ion-icon>
+      <ion-icon color="primary" slot="icon-only" name="add"></ion-icon>
     </ion-button>
-    <ion-button>
-      <ion-icon slot="icon-only" name="settings"></ion-icon>
+    <ion-button [routerLink]="'/auth'">
+      <ion-icon color="primary" slot="icon-only" name="settings"></ion-icon>
     </ion-button>
   </ion-buttons>
 </ion-toolbar>
 
 <ion-content>
-    <ion-card class="subject" *ngFor="let subject of subjects">
+    <ion-card [routerLink]="['/subject/']" class="subject" *ngFor="let subject of subjects">
       <ion-card-header>
         <ion-card-subtitle *ngIf="subject.subtitle">{{ subject.subtitle }}</ion-card-subtitle>
-        <ion-card-title>{{ subject.title }}</ion-card-title>
+        <ion-card-title color="primary">{{ subject.title }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <p>{{ subject.summary }}</p>

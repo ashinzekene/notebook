@@ -3,18 +3,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'subject',
+    redirectTo: '',
+    path: 'subjects',
     pathMatch: 'full'
   },
-  {
-    path: 'subject',
-    loadChildren: './subjects/subjects.module#SubjectsPageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  }
+  { path: '', loadChildren: './subjects/subjects.module#SubjectsPageModule' },
+  { path: 'subject', loadChildren: './note-list/note-list.module#NoteListPageModule' },
+  { path: 'note', loadChildren: './note/note.module#NotePageModule' },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' }
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { SubjectsService } from '../services/subjects.service';
 import { Subject } from '../models/subjects';
 
@@ -9,10 +10,14 @@ import { Subject } from '../models/subjects';
 })
 export class SubjectsPage implements OnInit {
   subjects: Subject[] 
-  constructor(public subjectService: SubjectsService) {}
+  constructor(public subjectService: SubjectsService, private router: Router) {}
   
   ngOnInit() {
     this.subjects = this.subjectService.getSubjects()
   }
+  
+  // openSubject(slug) {
+  //   this.router.navigateByUrl()
+  // }
 
 }
