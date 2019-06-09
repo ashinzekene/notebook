@@ -10,7 +10,7 @@
 </ion-toolbar>
 
 <ion-content class="ion-padding">
-  <div class="medium-editor">
+  <div class="medium-editor" (contextmenu)="handleContextMenu($event)">
       With the information about the exact positions of each element now computed, all that is left is to ‘paint’ the elements to the screen.
 
       Think about it. We’ve got every information required to actually display the elements on the screen. Let’s just get it shown to the user, right?

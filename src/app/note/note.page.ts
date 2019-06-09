@@ -23,6 +23,10 @@ export class NotePage implements OnInit, OnDestroy {
     });
   }
 
+  handleContextMenu(e: Event) {
+    e.preventDefault();
+  }
+
   ngOnDestroy() {
     this.editor.destroy();
   }
