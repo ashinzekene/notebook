@@ -7,7 +7,7 @@ install:
 script:
   - npm i -g ionic
   - npm run lint-fix
-  - ionic build --prod --service-worker
+  - ionic build --prod --service-worker --base-href ionic-notebook
 deploy:
   provider: pages
   local-dir: www
