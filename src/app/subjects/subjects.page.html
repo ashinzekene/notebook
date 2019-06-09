@@ -1,10 +1,10 @@
 <ion-toolbar>
-  <ion-title>
+  <ion-title color="primary">
     Subjects
   </ion-title>
   <ion-buttons slot="secondary">
     <ion-button>
-      <ion-icon color="primary" slot="icon-only" name="add"></ion-icon>
+      <ion-icon color="primary" slot="icon-only" name="search"></ion-icon>
     </ion-button>
     <ion-button [routerLink]="'/auth'">
       <ion-icon color="primary" slot="icon-only" name="settings"></ion-icon>
@@ -13,13 +13,25 @@
 </ion-toolbar>
 
 <ion-content>
-    <ion-card [routerLink]="['/subject/']" class="subject" *ngFor="let subject of subjects">
-      <ion-card-header>
-        <ion-card-subtitle *ngIf="subject.subtitle">{{ subject.subtitle }}</ion-card-subtitle>
-        <ion-card-title color="primary">{{ subject.title }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{ subject.summary }}</p>
-      </ion-card-content>
-    </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" size="12" *ngFor="let subject of subjects">
+          <ion-card [routerLink]="['/subject/']" class="subject">
+            <ion-card-header>
+              <ion-card-subtitle *ngIf="subject.subtitle">{{ subject.subtitle }}</ion-card-subtitle>
+              <ion-card-title color="primary">{{ subject.title }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>{{ subject.summary }}</p>
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/subject/']" translucent>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

@@ -1,27 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      List
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button color="primary" [routerLink]="['/']">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title color="primary">
+    Note
+  </ion-title>
+</ion-toolbar>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+<ion-content class="ion-padding">
+  <div class="medium-editor">
+      With the information about the exact positions of each element now computed, all that is left is to ‘paint’ the elements to the screen.
+
+      Think about it. We’ve got every information required to actually display the elements on the screen. Let’s just get it shown to the user, right?
+      
+      Yes! That’s exactly what this stage is all about.
+      
+      With the information on the content (DOM), style (CSSOM), and exact layout of the elements computed, the browser now “paints” the individual node to the screen.
+      
+      Finally, the elements are now rendered to the screen!
+  </div>
 </ion-content>
