@@ -15,22 +15,41 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size-sm="6" size="12" *ngFor="let subject of subjects">
-          <ion-card [routerLink]="['/subject/']" class="subject">
+      <ion-col size-sm="6" size="12" *ngIf="isCreatingNew">
+          <ion-card class="subject new-subject">
             <ion-card-header>
-              <ion-card-subtitle *ngIf="subject.subtitle">{{ subject.subtitle }}</ion-card-subtitle>
-              <ion-card-title color="primary">{{ subject.title }}</ion-card-title>
+              <ion-card-title color="primary" color="primary">
+                <div class="title">
+                  <p *ngIf="!newSubject.title.length" class="placeholder">Write a title...</p>
+                  <p class="title-content" (input)="handleTitleChange($event)" contenteditable></p>
+                </div>
+              </ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <p>{{ subject.summary }}</p>
+              <div class="summary">
+                <p *ngIf="!newSubject.summary.length" class="placeholder">Summary...</p>
+                <p class="summary-content" (input)="handleSummaryChange($event)" contenteditable></p>
+              </div>
             </ion-card-content>
           </ion-card>
+      </ion-col>
+
+      <ion-col size-sm="6" size="12" *ngFor="let subject of subjects; let i = index">
+        <ion-card  [ngStyle]="{'animation-delay': 100 * i + 'ms'}" [routerLink]="['/subject/']" class="subject">
+          <ion-card-header>
+            <ion-card-subtitle *ngIf="subject.subtitle">{{ subject.subtitle }}</ion-card-subtitle>
+            <ion-card-title color="primary">{{ subject.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ subject.summary }}</p>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
   
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button [routerLink]="['/subject/']" translucent>
+    <ion-fab-button (click)="createNew()" translucent>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

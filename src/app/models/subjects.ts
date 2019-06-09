@@ -4,8 +4,8 @@ export interface Subject {
   subtitle?: string;
   summary: string;
   categories: string[];
-  dateCreated?: Date;
-  dateModified?: Date;
+  dateCreated?: string;
+  dateModified?: string;
 }
 
 export const subjects: Subject[] = [
@@ -14,6 +14,36 @@ export const subjects: Subject[] = [
     title: 'Sunday School',
     categories: ['church'],
     summary: 'Jottings of sunday school service teachings'
+  },
+  {
+    slug: 'phil-sop',
+    title: 'Philosphia',
+    categories: ['knowledge'],
+    summary: 'Summary of episodes of the Le philosophia podcast'
+  },
+  {
+    slug: 'phil-sop',
+    title: 'Philosphia',
+    categories: ['knowledge'],
+    summary: 'Summary of episodes of the Le philosophia podcast'
+  },
+  {
+    slug: 'phil-sop',
+    title: 'Philosphia',
+    categories: ['knowledge'],
+    summary: 'Summary of episodes of the Le philosophia podcast'
+  },
+  {
+    slug: 'phil-sop',
+    title: 'Philosphia',
+    categories: ['knowledge'],
+    summary: 'Summary of episodes of the Le philosophia podcast'
+  },
+  {
+    slug: 'phil-sop',
+    title: 'Philosphia',
+    categories: ['knowledge'],
+    summary: 'Summary of episodes of the Le philosophia podcast'
   },
   {
     slug: 'phil-sop',

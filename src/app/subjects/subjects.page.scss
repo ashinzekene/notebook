@@ -1,4 +1,67 @@
+@keyframes newSubjectEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes subjectEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0vw);
+  }
+}
+
+.new-subject {
+  animation: newSubjectEnter 500ms;
+  div.title {
+    position: relative;
+    height: 30px;
+    .title-content {
+      position: absolute;
+      height: inherit;
+      width: 100%;
+      font-weight: 700;
+      margin: 0;
+      font-size: 20px;
+    }
+    p.placeholder {
+      margin: 0;
+      position: absolute;
+      color: rgba($color: #999999, $alpha: 0.3);
+    }
+  }
+  div.summary {
+    position: relative;
+    height: 20px;
+    .summary-content {
+      position: absolute;
+      height: inherit;
+      width: 100%;
+      margin: 0;
+    }
+    p.placeholder {
+      margin: 0;
+      position: absolute;
+      color: rgba($color: #999999, $alpha: 0.3);
+    }
+  }
+  *:focus {
+    outline: none;
+  }
+}
+
 ion-card.subject {
+  animation-name: subjectEnter;
+  animation-duration: 500ms;
+  animation-timing-function: ease;
   background-color: var(--subject-background-color);
   box-shadow: 1px 1px 7px 0px rgba($color: #999999, $alpha: 0.2);
   margin-bottom: 20px;

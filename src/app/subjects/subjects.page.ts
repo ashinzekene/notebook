@@ -10,14 +10,30 @@ import { Subject } from '../models/subjects';
 })
 export class SubjectsPage implements OnInit {
   subjects: Subject[];
+  newSubject: Subject;
+  isCreatingNew = false;
   constructor(public subjectService: SubjectsService, private router: Router) {}
 
   ngOnInit() {
     this.subjects = this.subjectService.getSubjects();
   }
 
-  // openSubject(slug) {
-  //   this.router.navigateByUrl()
-  // }
+  createNew() {
+    this.isCreatingNew = true;
+    this.newSubject = {
+      title: '',
+      summary: '',
+      slug: '',
+      categories: [],
+      dateCreated: (new Date()).toISOString()
+    };
+  }
 
+  handleTitleChange(e: KeyboardEvent) {
+    this.newSubject.title = (e.target as HTMLElement).textContent;
+  }
+
+  handleSummaryChange(e: KeyboardEvent) {
+    this.newSubject.summary = (e.target as HTMLElement).textContent;
+  }
 }
