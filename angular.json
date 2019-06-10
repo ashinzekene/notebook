@@ -80,6 +80,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "baseHref": "/",
+            "deployUrl": "",
             "browserTarget": "app:build"
           },
           "configurations": {
