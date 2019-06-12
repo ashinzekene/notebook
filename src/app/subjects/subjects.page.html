@@ -12,7 +12,7 @@
   </ion-buttons>
 </ion-toolbar>
 
-<ion-content>
+<ion-content (pointerdown)="handlePageClick($event)">
   <ion-grid>
     <ion-row>
       <ion-col size-sm="6" size="12" *ngIf="isCreatingNew">
@@ -34,8 +34,8 @@
           </ion-card>
       </ion-col>
 
-      <ion-col size-sm="6" size="12" *ngFor="let subject of subjects; let i = index">
-        <ion-card  [ngStyle]="{'animation-delay': 100 * i + 'ms'}" [routerLink]="['/subject/']" class="subject">
+      <ion-col size-sm="6" size="12" *ngFor="let subject of subjects | async;">
+        <ion-card [routerLink]="['/subject/']" class="subject">
           <ion-card-header>
             <ion-card-subtitle *ngIf="subject.subtitle">{{ subject.subtitle }}</ion-card-subtitle>
             <ion-card-title color="primary">{{ subject.title }}</ion-card-title>

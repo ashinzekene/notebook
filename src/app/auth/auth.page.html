@@ -11,12 +11,32 @@
   <ion-text class="ion-padding-vertical text">
     <h2>Welcome to Notes. Pen things down by subjects</h2>
   </ion-text>
-  <ion-button
-    class="auth-button"
-    fill="outline"
-    color="primary"
-    (click)="signInGoogle()"
-  >
-    Sign in with Google
-  </ion-button>
+  <ng-container
+    *ngIf="isAuthenticated; then authenticated; else notAuthenticated">
+  </ng-container>
+
+  <ng-template #notAuthenticated>
+    <ion-button (click)="changeAuthType()" fill="outline">
+      {{ isSignUp && "Sign In" || "Sign Up" }}
+    </ion-button>
+
+    <ion-item *ngIf="isSignUp">
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input [(ngModel)]="user.name" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input [(ngModel)]="user.email" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input [(ngModel)]="user.password" type="password"></ion-input>
+    </ion-item>
+    <ion-button *ngIf="isSignUp" class="ion-padding-vertical" (click)="signUp()">Sign Up</ion-button>
+    <ion-button *ngIf="!isSignUp" class="ion-padding-vertical" (click)="logIn()">Log In</ion-button>
+  </ng-template>
+
+  <ng-template #authenticated>
+    <ion-button class="ion-padding-vertical" (click)="logOut()">Log Out</ion-button>
+  </ng-template>
 </ion-content>
