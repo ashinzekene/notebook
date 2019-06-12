@@ -34,7 +34,7 @@ MIT
 
 @angular/fire/auth
 
-@angular/fire/database
+@angular/fire/firestore
 
 @angular/forms
 MIT
@@ -254,13 +254,16 @@ Apache-2.0
    limitations under the License.
 
 
-@firebase/database
+@firebase/firestore
 Apache-2.0
 
 @firebase/logger
 Apache-2.0
 
 @firebase/util
+Apache-2.0
+
+@firebase/webchannel-wrapper
 Apache-2.0
 
 @ionic-native/core
@@ -329,7 +332,7 @@ firebase/app
 
 firebase/auth
 
-firebase/database
+firebase/firestore
 
 loader
 
