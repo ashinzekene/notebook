@@ -10,15 +10,17 @@
 </ion-toolbar>
 
 <ion-content>
-  <ion-list>
-    <ion-item [routerLink]="['/note']" *ngFor="let item of items">
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
+  <ion-card [routerLink]="['/note']" *ngFor="let note of notes">
+    <ion-card-header>
+      <ion-card-subtitle>{{ note.subject?.title }}</ion-card-subtitle>
+      <ion-card-title>{{ note.title }}</ion-card-title>
+    </ion-card-header>
   
+    <ion-card-content>
+      {{ note.content | slice:0:100 }}
+    </ion-card-content>
+  </ion-card>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button [routerLink]="['/note']" translucent>
       <ion-icon name="add"></ion-icon>
