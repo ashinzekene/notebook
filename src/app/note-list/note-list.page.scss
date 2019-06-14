@@ -1,1 +1,16 @@
-
+ion-card.note {
+  h1 {
+    margin-top: 5px;
+  }
+  border-radius: 20px;
+  background-color: var(--subject-background-color);
+  box-shadow: 1px 1px 7px 0px rgba($color: #999999, $alpha: 0.2);
+  margin-bottom: 20px;
+  border-radius: 12px;
+  &:hover {
+    box-shadow: 1px 1px 10px 0px rgba($color: #999999, $alpha: 0.5);
+  }
+  ion-card-title {
+    font-weight: 700;
+  }
+}

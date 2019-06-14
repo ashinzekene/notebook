@@ -9,15 +9,19 @@
   </ion-title>
 </ion-toolbar>
 
+<ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
+
 <ion-content>
-  <ion-card [routerLink]="['/note']" *ngFor="let note of notes">
+  <ion-card class="ion-margin-vertical note" [routerLink]="['/note']" *ngFor="let note of _notes">
     <ion-card-header>
-      <ion-card-subtitle>{{ note.subject?.title }}</ion-card-subtitle>
-      <ion-card-title>{{ note.title }}</ion-card-title>
+      <ion-card-subtitle *ngIf="!!note.subject">{{ note.subject.title }}</ion-card-subtitle>
+      <ion-card-title color="primary">
+        <h1>{{ note.title }}</h1>
+      </ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      {{ note.content | slice:0:100 }}
+      {{ note.content | slice:0:150}}...
     </ion-card-content>
   </ion-card>
 

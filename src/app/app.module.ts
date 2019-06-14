@@ -18,7 +18,7 @@ import { firebaseConfig } from './firebase-config';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     IonicModule.forRoot(),
     AngularFireAuthModule,

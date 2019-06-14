@@ -20,7 +20,7 @@ export class SubjectsPage implements OnInit {
   constructor(public subjectService: SubjectsService, private router: Router) {}
 
   ngOnInit() {
-    setTimeout(() => this.getSubjects(), 1000);
+    this.getSubjects();
   }
 
   getSubjects() {

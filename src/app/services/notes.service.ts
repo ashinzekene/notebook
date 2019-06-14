@@ -15,14 +15,18 @@ export class NotesService {
     if (!u) return null;
     return this.afs.collection<Note>(
       'notes',
-      ref => ref.where('userId', '==', u.uid).orderBy('dateModified', 'desc')
+      ref => ref.where('userId', '==', u.uid)
+      .orderBy('dateModified', 'desc')
     ).valueChanges();
   }
 
   getSubjectNotes(subjectId: string): Observable<Note[]> {
+    const u = this.auth.user;
     return this.afs.collection<Note>(
       'notes',
-      ref => ref.where('subjectId', '==', subjectId).orderBy('dateModified', 'desc')
+      ref => ref.where('subjectId', '==', subjectId)
+      .where('userId', '==', u.uid)
+      .orderBy('dateModified', 'desc')
     ).valueChanges();
   }
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthResolver } from './services/auth.resolver';
 
 const routes: Routes = [
   {
@@ -7,9 +8,20 @@ const routes: Routes = [
     path: 'subjects',
     pathMatch: 'full'
   },
-  { path: '', loadChildren: './subjects/subjects.module#SubjectsPageModule' },
-  { path: 'subject', loadChildren: './note-list/note-list.module#NoteListPageModule' },
-  { path: 'note', loadChildren: './note/note.module#NotePageModule' },
+  {
+    path: '',
+    resolve: { user: AuthResolver },
+    loadChildren: './subjects/subjects.module#SubjectsPageModule' },
+  {
+    path: 'subject',
+    resolve: { user: AuthResolver },
+    loadChildren: './note-list/note-list.module#NoteListPageModule'
+  },
+  {
+    path: 'note',
+    resolve: { user: AuthResolver },
+    loadChildren: './note/note.module#NotePageModule'
+  },
   { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' }
 ];
 

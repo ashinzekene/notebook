@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from 'firebase/app';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +14,14 @@ export class AuthService {
     this.authState = this.afAuth.authState.toPromise();
   }
 
-  initializeAuth() {
-    this.afAuth.authState.subscribe(user => {
-      this.user = user;
+  initializeAuth(): Promise<firebase.User> {
+    return new Promise((resolve) => {
+      this.afAuth.authState.subscribe(user => {
+        this.user = user;
+        resolve(user);
+      });
+      this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
     });
-    this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
   }
 
   async signUp(email: string, password: string, name: string): Promise<firebase.User> {

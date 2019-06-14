@@ -34,18 +34,16 @@
       </ion-card>
   </ion-col>
 
-  <ion-col size-sm="6" size="12" *ngFor="let subject of subjects;">
-    <ion-card [routerLink]="['/subject/']" class="subject">
-      <ion-card-header>
-        <ion-card-subtitle *ngIf="subject.subtitle">{{ subject.subtitle }}</ion-card-subtitle>
-        <ion-card-title color="primary">{{ subject.title }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{ subject.summary }}</p>
-      </ion-card-content>
-    </ion-card>
-  </ion-col>
-  
+  <ion-card [routerLink]="['/subject/']" class="subject" *ngFor="let subject of subjects;">
+    <ion-card-header>
+      <ion-card-subtitle *ngIf="subject.subtitle">{{ subject.subtitle }}</ion-card-subtitle>
+      <ion-card-title color="primary">{{ subject.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ subject.summary }}</p>
+    </ion-card-content>
+  </ion-card>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="createNew()" translucent>
       <ion-icon name="add"></ion-icon>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Note, notes } from '../models/notes';
 import { NotesService } from '../services/notes.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-note-list',
@@ -15,7 +16,7 @@ export class NoteListPage implements OnInit {
     this._notes = notes;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.notesService.getSubjectNotes('12').subscribe(n => {
       this.loading = false;
       this.notes = n;
