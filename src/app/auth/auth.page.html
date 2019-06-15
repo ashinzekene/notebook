@@ -16,10 +16,6 @@
   </ng-container>
 
   <ng-template #notAuthenticated>
-    <ion-button (click)="changeAuthType()" fill="outline">
-      {{ isSignUp && "Sign In" || "Sign Up" }}
-    </ion-button>
-
     <ion-item *ngIf="isSignUp">
       <ion-label position="stacked">Name</ion-label>
       <ion-input [(ngModel)]="user.name" type="text"></ion-input>
@@ -32,11 +28,41 @@
       <ion-label position="stacked">Password</ion-label>
       <ion-input [(ngModel)]="user.password" type="password"></ion-input>
     </ion-item>
-    <ion-button *ngIf="isSignUp" class="ion-padding-vertical" (click)="signUp()">Sign Up</ion-button>
-    <ion-button *ngIf="!isSignUp" class="ion-padding-vertical" (click)="logIn()">Log In</ion-button>
+    <ion-button
+      class="ion-padding-vertical"
+      expand="block"
+      size="large"
+      *ngIf="isSignUp"
+      class="ion-padding-vertical"
+      (click)="signUp()"
+    >
+      Sign Up
+    </ion-button>
+    <ion-button
+      class="ion-padding-vertical"
+      expand="block"
+      size="large"
+      *ngIf="!isSignUp"
+      class="ion-padding-vertical"
+      (click)="logIn()"
+    >
+      Log In
+    </ion-button>
   </ng-template>
 
   <ng-template #authenticated>
-    <ion-button class="ion-padding-vertical" (click)="logOut()">Log Out</ion-button>
+    <ion-button
+      expand="block"
+      size="large"
+      class="ion-padding-vertical"
+      (click)="logOut()"
+    >
+      Log Out
+    </ion-button>
   </ng-template>
+  <div>
+    <ion-button (click)="changeAuthType()" fill="clear">
+      {{ isSignUp && "Sign In" || "Sign Up" }}
+    </ion-button>
+  </div>
 </ion-content>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,20 @@ export class AuthService {
   user: firebase.User;
   authState: Promise<firebase.User>;
 
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore,
+    private router: Router
+  ) {
     this.authState = this.afAuth.authState.toPromise();
   }
 
   initializeAuth(): Promise<firebase.User> {
     return new Promise((resolve) => {
       this.afAuth.authState.subscribe(user => {
+        if (!user) {
+          this.router.navigateByUrl('/auth');
+        }
         this.user = user;
         resolve(user);
       });

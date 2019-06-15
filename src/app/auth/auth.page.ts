@@ -17,9 +17,9 @@ export class AuthPage implements OnInit {
 
   constructor(private auth: AuthService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.auth.initializeAuth();
     this.setAuthState();
-    console.log('Auth?', this.isAuthenticated);
   }
 
   changeAuthType() {
@@ -31,17 +31,15 @@ export class AuthPage implements OnInit {
     this.setAuthState();
   }
 
-  signUp() {
+  async signUp() {
     const {email, name, password} = this.user;
-    this.auth.signUp(email, password, name)
-      .then(console.log);
+    await this.auth.signUp(email, password, name);
     this.setAuthState();
   }
 
-  logIn() {
+  async logIn() {
     const {email, password} = this.user;
-    this.auth.signIn(email, password)
-      .then(console.log);
+    await this.auth.signIn(email, password);
     this.setAuthState();
   }
 
