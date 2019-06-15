@@ -22,7 +22,9 @@ import { firebaseConfig } from './firebase-config';
     AppRoutingModule,
     IonicModule.forRoot(),
     AngularFireAuthModule,
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence({
+      synchronizeTabs: true,
+    }),
     AngularFireModule.initializeApp(firebaseConfig),
   ],
   providers: [

@@ -30,8 +30,20 @@ export class NotesService {
     ).valueChanges();
   }
 
+  getNote(noteId: string): Observable<Note[]> {
+    const u = this.auth.user;
+    console.log('Getting note with ID', noteId);
+    return this.afs.collection<Note>(
+      'notes',
+      ref => ref.where('id', '==', noteId)
+      .where('userId', '==', u.uid)
+    ).valueChanges();
+  }
+
   createNote(title: string, content: string, subjectId: string) {
+    const id = this.afs.createId();
     return this.afs.collection<Note>('notes').add({
+      id,
       title,
       content,
       subjectId,

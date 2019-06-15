@@ -1,3 +1,8 @@
+ion-title:focus {
+  outline: none;
+  border-bottom: 1px solid rgba($color: #777777, $alpha: 0.3);
+}
+
 .medium-editor {
  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;
  line-height: 1.5;

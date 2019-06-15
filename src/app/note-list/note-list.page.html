@@ -12,7 +12,7 @@
 <ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
 
 <ion-content>
-  <ion-card class="ion-margin-vertical note" [routerLink]="['/note']" *ngFor="let note of _notes">
+  <ion-card class="ion-margin-vertical note" [routerLink]="['/note/'+ note.id]" *ngFor="let note of notes">
     <ion-card-header>
       <ion-card-subtitle *ngIf="!!note.subject">{{ note.subject.title }}</ion-card-subtitle>
       <ion-card-title color="primary">
@@ -26,7 +26,7 @@
   </ion-card>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button [routerLink]="['/note']" translucent>
+    <ion-fab-button [routerLink]="['/note/'+subjectId + '/new']" translucent>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

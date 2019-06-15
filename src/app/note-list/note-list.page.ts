@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+
 import { Note, notes } from '../models/notes';
 import { NotesService } from '../services/notes.service';
-import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-note-list',
@@ -9,17 +11,21 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['note-list.page.scss']
 })
 export class NoteListPage implements OnInit {
-  _notes: Note[];
+  subjectId: string;
   notes: Note[];
   loading = true;
-  constructor(private notesService: NotesService) {
-    this._notes = notes;
-  }
+  constructor(private notesService: NotesService, private route: ActivatedRoute) {}
 
   async ngOnInit() {
-    this.notesService.getSubjectNotes('12').subscribe(n => {
-      this.loading = false;
-      this.notes = n;
-    });
+    this.route.paramMap.pipe<Note[]>(
+      switchMap((params: ParamMap) => {
+        this.subjectId = params.get('id');
+        return this.notesService.getSubjectNotes(this.subjectId);
+      })
+    )
+      .subscribe(n => {
+        this.loading = false;
+        this.notes = n;
+      });
   }
 }

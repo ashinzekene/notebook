@@ -1,4 +1,5 @@
 export interface Note {
+  id: string;
   userId?: string;
   subjectId: string;
   title: string;
@@ -9,6 +10,7 @@ export interface Note {
 
 export const notes: Note[] = [
   {
+    id: '23',
     subjectId: '12',
     title: 'A new note',
     content: `
@@ -18,6 +20,7 @@ export const notes: Note[] = [
     `,
   },
   {
+    id: '13',
     subjectId: '12',
     title: 'An old note',
     content: `

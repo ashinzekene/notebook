@@ -1,13 +1,15 @@
 <ion-toolbar>
   <ion-buttons slot="start">
-    <ion-button color="primary" [routerLink]="['/subject']">
+    <ion-button color="primary" [routerLink]="['/subject/' + subjectId]">
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
   </ion-buttons>
-  <ion-title color="primary">
+  <ion-title (input)="handleTitleChange($event)" tabindex="0"  contentEditable="true" color="primary">
     Note
   </ion-title>
 </ion-toolbar>
+
+<ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
 
 <ion-content class="ion-padding">
   <div class="medium-editor" (contextmenu)="handleContextMenu($event)">

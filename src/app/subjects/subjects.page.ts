@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { SubjectsService } from '../services/subjects.service';
@@ -13,7 +12,7 @@ import { Subject } from '../models/subjects';
 })
 export class SubjectsPage implements OnInit {
   @ViewChild(IonContent) content: IonContent;
-  newSubject: Subject;
+  newSubject: Partial<Subject>;
   subjects: Subject[];
   loading = true;
   isCreatingNew = false;
@@ -50,15 +49,14 @@ export class SubjectsPage implements OnInit {
   async handlePageClick(e: TouchEvent) {
     if (!this.isCreatingNew) return;
     const { title, summary } = this.newSubject;
+    if (!!(e.target as Element).closest('.new-subject')) return;
     if (!title || !summary) {
       this.isCreatingNew = false;
       return;
     }
-    if (!(e.target as Element).closest('.new-subject')) {
-      this.loading = true;
-      await this.subjectService.createSubject(title, summary);
-      this.loading = false;
-      this.isCreatingNew = false;
-    }
+    this.loading = true;
+    this.isCreatingNew = false;
+    await this.subjectService.createSubject(title, summary);
+    this.loading = false;
   }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthResolver } from './services/auth.resolver';
+import { NoteResolver } from './services/note.resolver';
 
 const routes: Routes = [
   {
@@ -13,12 +14,17 @@ const routes: Routes = [
     resolve: { user: AuthResolver },
     loadChildren: './subjects/subjects.module#SubjectsPageModule' },
   {
-    path: 'subject',
+    path: 'subject/:id',
     resolve: { user: AuthResolver },
     loadChildren: './note-list/note-list.module#NoteListPageModule'
   },
   {
-    path: 'note',
+    path: 'note/:id',
+    resolve: { user: AuthResolver },
+    loadChildren: './note/note.module#NotePageModule'
+  },
+  {
+    path: 'note/:subjectId/new',
     resolve: { user: AuthResolver },
     loadChildren: './note/note.module#NotePageModule'
   },

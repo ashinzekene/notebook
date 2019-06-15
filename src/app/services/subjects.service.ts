@@ -21,7 +21,9 @@ export class SubjectsService {
   }
 
   createSubject(title: string, summary: string) {
+    const id = this.afs.createId();
     return this.afs.collection<Subject>('subjects').add({
+      id,
       title,
       summary,
       userId: this.auth.user.uid,
