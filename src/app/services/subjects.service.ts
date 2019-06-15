@@ -27,6 +27,10 @@ export class SubjectsService {
     });
   }
 
+  getSubject(id: string): Observable<Subject> {
+    return this.afs.doc<Subject>(`subjects/${id}`).valueChanges();
+  }
+
   createSubject(title: string, summary: string) {
     const id = this.afs.createId();
     return this.afs.collection<Subject>('subjects').doc(id).set({

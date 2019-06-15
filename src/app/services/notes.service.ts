@@ -30,13 +30,9 @@ export class NotesService {
     ).valueChanges();
   }
 
-  getNote(noteId: string): Observable<Note[]> {
+  getNote(noteId: string): Observable<Note> {
     const u = this.auth.user;
-    return this.afs.collection<Note>(
-      'notes',
-      ref => ref.where('id', '==', noteId)
-      .where('userId', '==', u.uid)
-    ).valueChanges();
+    return this.afs.doc<Note>(`notes/${noteId}`).valueChanges();
   }
 
   updateNote(note: Partial<Note>) {

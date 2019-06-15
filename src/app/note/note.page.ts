@@ -38,7 +38,7 @@ export class NotePage implements OnInit {
     this.loading = true;
     this.notesService.getNote(id)
     .subscribe(note => {
-      this.note = note[0];
+      this.note = note;
       this.title = this.note.title;
       this.subjectId = this.note.subjectId;
       this.editor.setContent(this.note.content);
