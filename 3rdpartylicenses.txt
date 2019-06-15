@@ -376,9 +376,6 @@ own licenses; we recommend you read them, as their terms may differ from
 the terms above.
 
 
-medium-editor-autolist
-ISC
-
 rxjs
 Apache-2.0
                                Apache License
