@@ -20,9 +20,16 @@ export class SubjectsService {
     ).valueChanges();
   }
 
+  updateSubject(subject: Subject) {
+    return this.afs.doc<Subject>(`subjects/${subject.id}`).update({
+      ...subject,
+      dateModified: (new Date()).toISOString(),
+    });
+  }
+
   createSubject(title: string, summary: string) {
     const id = this.afs.createId();
-    return this.afs.collection<Subject>('subjects').add({
+    return this.afs.collection<Subject>('subjects').doc(id).set({
       id,
       title,
       summary,

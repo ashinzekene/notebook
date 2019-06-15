@@ -32,7 +32,6 @@ export class NotesService {
 
   getNote(noteId: string): Observable<Note[]> {
     const u = this.auth.user;
-    console.log('Getting note with ID', noteId);
     return this.afs.collection<Note>(
       'notes',
       ref => ref.where('id', '==', noteId)
@@ -40,9 +39,16 @@ export class NotesService {
     ).valueChanges();
   }
 
+  updateNote(note: Partial<Note>) {
+    return this.afs.doc<Note>(`notes/${note.id}`).update({
+      ...note,
+      dateModified: (new Date()).toISOString(),
+    });
+  }
+
   createNote(title: string, content: string, subjectId: string) {
     const id = this.afs.createId();
-    return this.afs.collection<Note>('notes').add({
+    return this.afs.collection<Note>('notes').doc(id).set({
       id,
       title,
       content,

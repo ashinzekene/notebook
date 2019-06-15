@@ -14,9 +14,9 @@ import { ListAuto } from '../medium-editor-plugins';
 export class NotePage implements OnInit {
   public editor: any;
   creatingNew = false;
-  subjectId: string;
+  subjectId = '';
   noteId: string;
-  title: 'Note';
+  title = 'Title';
   loading = false;
   note: Partial<Note>;
   constructor(private route: ActivatedRoute, private notesService: NotesService) {}
@@ -25,7 +25,6 @@ export class NotePage implements OnInit {
     this.initEditor();
     const noteId = this.route.snapshot.paramMap.get('id');
     const subjectId = this.route.snapshot.params.subjectId;
-    console.log('SubjectID', subjectId);
     if (!noteId && subjectId) {
       this.creatingNew = true;
       this.subjectId = subjectId;
@@ -40,7 +39,9 @@ export class NotePage implements OnInit {
     this.notesService.getNote(id)
     .subscribe(note => {
       this.note = note[0];
-      this.editor.pasteHTML(this.note.content);
+      this.title = this.note.title;
+      this.subjectId = this.note.subjectId;
+      this.editor.setContent(this.note.content);
       this.loading = false;
     });
   }
@@ -55,12 +56,8 @@ export class NotePage implements OnInit {
     });
   }
 
-  createNote() {
-
-  }
-
-  handleTitleChange(ev) {
-    this.title = ev.target.textContent;
+  handleTitleChange(ev: Event) {
+    this.title = (ev.target as Element).textContent;
   }
 
   handleContextMenu(e: Event) {
@@ -68,9 +65,13 @@ export class NotePage implements OnInit {
   }
 
   ionViewWillLeave() {
+    const content = this.editor.getContent();
     if (this.creatingNew) {
-      const content = this.editor.getContent();
-      // this.notesService.createNote(this.title, content, this.subjectId);
+      this.notesService.createNote(this.title, content, this.subjectId);
+    } else {
+      this.note.content = content;
+      this.note.title = this.title;
+      this.notesService.updateNote(this.note);
     }
     this.editor.destroy();
   }

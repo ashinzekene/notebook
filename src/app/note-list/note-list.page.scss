@@ -14,3 +14,20 @@ ion-card.note {
     font-weight: 700;
   }
 }
+
+.empty {
+  margin: auto;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  ion-text {
+    text-align: center;
+    width: 150%;
+  }
+  ion-icon {
+    font-size: 20vw;
+  }
+}
