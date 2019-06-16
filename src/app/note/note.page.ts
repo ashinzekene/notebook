@@ -68,21 +68,21 @@ export class NotePage {
   }
 
   ionViewWillLeave() {
+    const content = this.editor.getContent();
     if (this.creatingNew) {
-      this.createNote();
+      this.createNote(content);
     } else {
-      this.saveNote();
+      this.saveNote(content);
     }
     this.editor.destroy();
   }
 
-  async createNote() {
-    const content = this.editor.getContent();
+  async createNote(content: string) {
+    if (!content) return;
     await this.notesService.createNote(this.note.title, content, this.subjectId);
   }
 
-  saveNote() {
-    const content = this.editor.getContent();
+  saveNote(content: string) {
     this.note.content = content;
     this.notesService.updateNote(this.note);
   }
