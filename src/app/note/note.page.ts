@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NotesService } from '../services/notes.service';
 import { Note } from '../models/notes';
 import { ListAuto } from '../medium-editor-plugins';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-note',
@@ -19,6 +20,7 @@ export class NotePage {
   title = 'Title';
   loading = false;
   note: Partial<Note>;
+  subscription: Subscription;
   constructor(private route: ActivatedRoute, private notesService: NotesService) {}
 
   ionViewDidEnter() {
@@ -39,7 +41,7 @@ export class NotePage {
 
   getNote(id: string) {
     this.loading = true;
-    this.notesService.getNote(id)
+    this.subscription = this.notesService.getNote(id)
     .subscribe(note => {
       this.note = note;
       this.title = note.title;
@@ -85,6 +87,10 @@ export class NotePage {
   saveNote(content: string) {
     this.note.content = content;
     this.notesService.updateNote(this.note);
+  }
+
+  ionViewDidLeave() {
+    this.subscription.unsubscribe();
   }
 
 }

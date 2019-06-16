@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { SubjectsService } from '../services/subjects.service';
 import { Subject } from '../models/subjects';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-subjects',
@@ -16,6 +17,7 @@ export class SubjectsPage {
   subjects: Subject[];
   loading = true;
   isCreatingNew = false;
+  subscription: Subscription;
   constructor(public subjectService: SubjectsService, private router: Router) {}
 
   ionViewDidEnter() {
@@ -23,7 +25,7 @@ export class SubjectsPage {
   }
 
   getSubjects() {
-    this.subjectService.getUserSubjects().subscribe(subjects => {
+   this.subscription = this.subjectService.getUserSubjects().subscribe(subjects => {
       this.subjects = subjects;
       this.loading = false;
     });
@@ -58,5 +60,9 @@ export class SubjectsPage {
     this.isCreatingNew = false;
     await this.subjectService.createSubject(title, summary);
     this.loading = false;
+  }
+
+  ionViewDidLeave() {
+    this.subscription.unsubscribe();
   }
 }

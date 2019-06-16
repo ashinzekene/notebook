@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 import { Note } from '../models/notes';
 import { NotesService } from '../services/notes.service';
 import { SubjectsService } from '../services/subjects.service';
 import { Subject } from '../models/subjects';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-note-list',
@@ -17,6 +17,7 @@ export class NoteListPage {
   notes: Note[];
   subject: Subject;
   loading = true;
+  subscription: Subscription;
   constructor(
     private notesService: NotesService,
     private subjectService: SubjectsService,
@@ -31,10 +32,14 @@ export class NoteListPage {
     this.getSubject(subjectId);
   }
 
-
+  handleSummaryChange(ev) {
+    const subject = this.subject;
+    subject.summary = ev.target.textContent;
+    this.subjectService.updateSubject(subject);
+  }
 
   getNote(subjectId: string) {
-    this.notesService.getSubjectNotes(subjectId)
+    this.subscription = this.notesService.getSubjectNotes(subjectId)
       .subscribe(n => {
         this.loading = false;
         this.notes = n;
@@ -46,5 +51,9 @@ export class NoteListPage {
       .subscribe(s => {
         this.subject = s;
       });
+  }
+
+  ionViewDidLeave() {
+    this.subscription.unsubscribe();
   }
 }

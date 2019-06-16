@@ -13,7 +13,7 @@
 
 <ion-content>
   <ion-text class="ion-text-center ion-margin-bottom">
-    <p>{{ subject?.summary }}</p>
+    <p contenteditable (blur)="handleSummaryChange($event)">{{ subject?.summary }}</p>
   </ion-text>
   
   <div *ngIf="notes?.length == 0" class="empty">
