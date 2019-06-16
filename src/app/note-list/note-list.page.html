@@ -12,6 +12,9 @@
 <ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
 
 <ion-content>
+  <ion-text class="ion-text-center ion-margin-bottom">
+    <p>{{ subject?.summary }}</p>
+  </ion-text>
   
   <div *ngIf="notes?.length == 0" class="empty">
     <ion-icon color="primary" name="book"></ion-icon>
