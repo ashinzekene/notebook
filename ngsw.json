@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1560703758972,
+  "timestamp": 1560719181322,
   "index": "/notebook/index.html",
   "assetGroups": [
     {
@@ -60,7 +60,7 @@
         "/notebook/147.3dff6b3e1fbbf6c681d3.js",
         "/notebook/148.84b1c0f3e23453ccaad5.js",
         "/notebook/149.65eb28fdfefc292c0c04.js",
-        "/notebook/15.7a06e440ebc9272eacab.js",
+        "/notebook/15.80538d8b2670d6267b0b.js",
         "/notebook/150.50072e24ac32f5e88ee8.js",
         "/notebook/151.2d0a9bcd52a878c1e08b.js",
         "/notebook/152.1303b737e6243b2ca50e.js",
@@ -82,7 +82,7 @@
         "/notebook/167.ae198e6ff33df6e34658.js",
         "/notebook/168.c39d79e8f57020369d6d.js",
         "/notebook/169.90270eea752008e51320.js",
-        "/notebook/17.809c3df6b7c4febbe9e1.js",
+        "/notebook/17.f55f3d92b72cde37b05a.js",
         "/notebook/170.62612e7cbe83f1658eef.js",
         "/notebook/171.09414d5dbf00cd1e48ca.js",
         "/notebook/172.b110e94a5e5185e8c3ca.js",
@@ -93,7 +93,7 @@
         "/notebook/177.84e53b161ad228fe3db1.js",
         "/notebook/178.6084ff9f6b6a0fa7824c.js",
         "/notebook/179.41f282d57927ea1c2414.js",
-        "/notebook/18.e35b4a57412b87113b3f.js",
+        "/notebook/18.c71c98f87582acc1e5bf.js",
         "/notebook/180.016fe9319dae95c4035e.js",
         "/notebook/181.595e9c6c42d09a1b2d2c.js",
         "/notebook/19.d65cd798628853e60401.js",
@@ -189,8 +189,8 @@
         "/notebook/index.html",
         "/notebook/main.393a8694460ded54244d.js",
         "/notebook/polyfills.9ccc9e25ed7d36fbe127.js",
-        "/notebook/runtime.6a78960d2bf1b9f0ec57.js",
-        "/notebook/styles.de3d23af8d7a775c461c.css"
+        "/notebook/runtime.4c534517bbe1d7706113.js",
+        "/notebook/styles.dd3fd6dfa55c39c7f8c2.css"
       ],
       "patterns": []
     },
@@ -268,7 +268,7 @@
     "/notebook/147.3dff6b3e1fbbf6c681d3.js": "de68b532cd1df5307dd729d8d86413b1938046fc",
     "/notebook/148.84b1c0f3e23453ccaad5.js": "96f07866872d38cd8205bc38c86e43f39d219fa9",
     "/notebook/149.65eb28fdfefc292c0c04.js": "38349a5baaf0f2847f63e66967c1a79904bf53b1",
-    "/notebook/15.7a06e440ebc9272eacab.js": "90d1a0da1e8719bfbab7548506cf64831b534d98",
+    "/notebook/15.80538d8b2670d6267b0b.js": "5c871647d6b910fa224d046df678bbadc21f1e64",
     "/notebook/150.50072e24ac32f5e88ee8.js": "c4cd365acefdf20a11de2911886f3f2720ff1ca7",
     "/notebook/151.2d0a9bcd52a878c1e08b.js": "5307e408da382ed3dab1daf53c992eb5587440e0",
     "/notebook/152.1303b737e6243b2ca50e.js": "f31f547bbfc320e8eebae45ad2c4e294a175beec",
@@ -290,7 +290,7 @@
     "/notebook/167.ae198e6ff33df6e34658.js": "533cea6ac8de270598044d45abbbc58478e1d6a5",
     "/notebook/168.c39d79e8f57020369d6d.js": "6ac4f1bed351051a74daa847b0e01f7b7552da4b",
     "/notebook/169.90270eea752008e51320.js": "6756cbdd22563f9bc8919c01eff61be7952d938a",
-    "/notebook/17.809c3df6b7c4febbe9e1.js": "869b627d9f94fa76d173a48248329a5320d616c6",
+    "/notebook/17.f55f3d92b72cde37b05a.js": "1433edb11ecbdf67a36e05e63314723e6cbe7149",
     "/notebook/170.62612e7cbe83f1658eef.js": "4cc4d6a26a47110b439cb0e68aec6c7be6bfb7dc",
     "/notebook/171.09414d5dbf00cd1e48ca.js": "b5bb308d8be10482d67f0176b9eeb53dbb536012",
     "/notebook/172.b110e94a5e5185e8c3ca.js": "9bc1316fe77d3b4e8d186f786043e4d09072a3d4",
@@ -301,7 +301,7 @@
     "/notebook/177.84e53b161ad228fe3db1.js": "095b6e5259a61a97d443586aaea135ff94d89d0c",
     "/notebook/178.6084ff9f6b6a0fa7824c.js": "dedd48f7fda2bbe6f03ad261d52cb0a229f95010",
     "/notebook/179.41f282d57927ea1c2414.js": "db8de3c323b15f19a433ef7c14b2cec1ab316b7b",
-    "/notebook/18.e35b4a57412b87113b3f.js": "6ae3fce478f5a07974cde22f67bcd1f7ba744b27",
+    "/notebook/18.c71c98f87582acc1e5bf.js": "c5d51aa1b0c6a51221485b15ef300f6e46310006",
     "/notebook/180.016fe9319dae95c4035e.js": "b87786b45c2b7dc50558f7670207ce15fb84bae4",
     "/notebook/181.595e9c6c42d09a1b2d2c.js": "5d2e7cb917195fa33cb931c58f24d1e160e678b6",
     "/notebook/19.d65cd798628853e60401.js": "785a93d686a5ef8c5291339f765ab42067627759",
@@ -405,11 +405,11 @@
     "/notebook/assets/shapes.svg": "5413e95adabcb2cb639970051f55e0ddb64ace53",
     "/notebook/common.637a9cdd429a3d4504af.js": "ca836a60afaf2a91da235fcb6b9b694b26a4fe3d",
     "/notebook/es2015-polyfills.30de7a2f7a97fe51cd0a.js": "7570d00147578b3761d7f98d057bead1ef857c57",
-    "/notebook/index.html": "d01ee985dc3efae1f7b51d267195529b5700e0f1",
+    "/notebook/index.html": "cf808cc9fdb98df5222e5b5a81e405f1234e6404",
     "/notebook/main.393a8694460ded54244d.js": "8e0a502b4e9549bcde234eb9b7e8b65e89c8dec3",
     "/notebook/polyfills.9ccc9e25ed7d36fbe127.js": "1719b733a191643a900b0df274abd7593fed160c",
-    "/notebook/runtime.6a78960d2bf1b9f0ec57.js": "4366ba72dcae52c336532cbcf2342ff6b54b5021",
-    "/notebook/styles.de3d23af8d7a775c461c.css": "447e8b5744d0b71f4fbe30821c1dfb6194a0a5d5"
+    "/notebook/runtime.4c534517bbe1d7706113.js": "86caee306970cb480a57bb18a4019a39ab790f8c",
+    "/notebook/styles.dd3fd6dfa55c39c7f8c2.css": "8550d415c50b06252106e2194df1041c8ce12afb"
   },
   "navigationUrls": [
     {
