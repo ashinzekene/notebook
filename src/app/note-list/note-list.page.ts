@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
@@ -12,7 +12,7 @@ import { Subject } from '../models/subjects';
   templateUrl: 'note-list.page.html',
   styleUrls: ['note-list.page.scss']
 })
-export class NoteListPage implements OnInit {
+export class NoteListPage {
   subjectId: string;
   notes: Note[];
   subject: Subject;
@@ -23,9 +23,10 @@ export class NoteListPage implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     this.loading = true;
     const subjectId = this.route.snapshot.paramMap.get('id');
+    this.subjectId = subjectId;
     this.getNote(subjectId);
     this.getSubject(subjectId);
   }

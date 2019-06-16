@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
 })
-export class AuthPage implements OnInit {
+export class AuthPage {
   isAuthenticated = false;
   isSignUp = true;
   user = {
@@ -17,7 +17,7 @@ export class AuthPage implements OnInit {
 
   constructor(private auth: AuthService) { }
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     await this.auth.initializeAuth();
     this.setAuthState();
   }

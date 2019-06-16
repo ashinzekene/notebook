@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import MediumEditor from 'medium-editor';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,8 +11,8 @@ import { ListAuto } from '../medium-editor-plugins';
   templateUrl: 'note.page.html',
   styleUrls: ['note.page.scss']
 })
-export class NotePage implements OnInit {
-  public editor: any;
+export class NotePage {
+  editor: any;
   creatingNew = false;
   subjectId = '';
   noteId: string;
@@ -21,13 +21,16 @@ export class NotePage implements OnInit {
   note: Partial<Note>;
   constructor(private route: ActivatedRoute, private notesService: NotesService) {}
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.initEditor();
     const noteId = this.route.snapshot.paramMap.get('id');
     const subjectId = this.route.snapshot.params.subjectId;
     if (!noteId && subjectId) {
       this.creatingNew = true;
       this.subjectId = subjectId;
+      this.note = {
+        title: this.title,
+      };
     } else {
       this.noteId = noteId;
       this.getNote(noteId);
@@ -39,9 +42,9 @@ export class NotePage implements OnInit {
     this.notesService.getNote(id)
     .subscribe(note => {
       this.note = note;
-      this.title = this.note.title;
-      this.subjectId = this.note.subjectId;
-      this.editor.setContent(this.note.content);
+      this.title = note.title;
+      this.subjectId = note.subjectId;
+      this.editor.setContent(note.content);
       this.loading = false;
     });
   }
@@ -57,7 +60,7 @@ export class NotePage implements OnInit {
   }
 
   handleTitleChange(ev: Event) {
-    this.title = (ev.target as Element).textContent;
+    this.note.title = (ev.target as Element).textContent;
   }
 
   handleContextMenu(e: Event) {
@@ -65,14 +68,23 @@ export class NotePage implements OnInit {
   }
 
   ionViewWillLeave() {
-    const content = this.editor.getContent();
     if (this.creatingNew) {
-      this.notesService.createNote(this.title, content, this.subjectId);
+      this.createNote();
     } else {
-      this.note.content = content;
-      this.note.title = this.title;
-      this.notesService.updateNote(this.note);
+      this.saveNote();
     }
     this.editor.destroy();
   }
+
+  async createNote() {
+    const content = this.editor.getContent();
+    await this.notesService.createNote(this.note.title, content, this.subjectId);
+  }
+
+  saveNote() {
+    const content = this.editor.getContent();
+    this.note.content = content;
+    this.notesService.updateNote(this.note);
+  }
+
 }

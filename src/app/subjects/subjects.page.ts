@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Subject } from '../models/subjects';
   templateUrl: 'subjects.page.html',
   styleUrls: ['subjects.page.scss'],
 })
-export class SubjectsPage implements OnInit {
+export class SubjectsPage {
   @ViewChild(IonContent) content: IonContent;
   newSubject: Partial<Subject>;
   subjects: Subject[];
@@ -18,7 +18,7 @@ export class SubjectsPage implements OnInit {
   isCreatingNew = false;
   constructor(public subjectService: SubjectsService, private router: Router) {}
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.getSubjects();
   }
 
