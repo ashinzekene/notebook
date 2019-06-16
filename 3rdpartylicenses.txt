@@ -45,6 +45,9 @@ MIT
 @angular/router
 MIT
 
+@angular/service-worker
+MIT
+
 @firebase/app
 Apache-2.0
 
@@ -265,15 +268,6 @@ Apache-2.0
 
 @firebase/webchannel-wrapper
 Apache-2.0
-
-@ionic-native/core
-MIT
-
-@ionic-native/splash-screen
-MIT
-
-@ionic-native/status-bar
-MIT
 
 @ionic/angular
 MIT
