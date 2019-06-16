@@ -14,8 +14,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/ionic-notebook/",
-            "deployUrl": "https://ashinzekene.github.io/ionic-notebook/",
+            "baseHref": "/notebook/",
+            "deployUrl": "https://ashinzekene.github.io/notebook/",
             "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
