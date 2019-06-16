@@ -5,7 +5,9 @@
     </ion-button>
   </ion-buttons>
   <ion-title color="primary">
-    {{ subject?.title }}
+    <h3 (blur)="handleTitleChange($event)" tabindex="0"  contenteditable="true">
+      {{ subject?.title }}
+    </h3>
   </ion-title>
 </ion-toolbar>
 

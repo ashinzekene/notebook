@@ -4,8 +4,10 @@
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
   </ion-buttons>
-  <ion-title (input)="handleTitleChange($event)" tabindex="0"  contentEditable="true" color="primary">
-    {{ title }}
+  <ion-title contenteditable color="primary">
+    <h3 (blur)="handleTitleChange($event)" tabindex="0"  contenteditable="true">
+      {{ title }}
+    </h3>
   </ion-title>
 </ion-toolbar>
 

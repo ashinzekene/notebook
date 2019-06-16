@@ -77,6 +77,7 @@ export class NotePage {
       this.saveNote(content);
     }
     this.editor.destroy();
+    this.subscription.unsubscribe();
   }
 
   async createNote(content: string) {
@@ -88,9 +89,4 @@ export class NotePage {
     this.note.content = content;
     this.notesService.updateNote(this.note);
   }
-
-  ionViewDidLeave() {
-    this.subscription.unsubscribe();
-  }
-
 }

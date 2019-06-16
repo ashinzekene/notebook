@@ -32,6 +32,12 @@ export class NoteListPage {
     this.getSubject(subjectId);
   }
 
+  handleTitleChange(ev) {
+    const subject = this.subject;
+    subject.title = ev.target.textContent;
+    this.notesService.updateNote(subject);
+  }
+
   handleSummaryChange(ev) {
     const subject = this.subject;
     subject.summary = ev.target.textContent;
@@ -53,7 +59,7 @@ export class NoteListPage {
       });
   }
 
-  ionViewDidLeave() {
+  ionViewWillLeave() {
     this.subscription.unsubscribe();
   }
 }
