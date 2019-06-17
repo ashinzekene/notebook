@@ -61,8 +61,10 @@ export class NotePage {
     });
   }
 
-  handleTitleChange(ev: Event) {
-    this.note.title = (ev.target as Element).textContent;
+  handleTitleChange(ev) {
+    const note = this.note;
+    note.title = ev.target.textContent;
+    this.notesService.updateNote(this.note);
   }
 
   handleContextMenu(e: Event) {

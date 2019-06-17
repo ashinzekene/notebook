@@ -35,7 +35,7 @@ export class NoteListPage {
   handleTitleChange(ev) {
     const subject = this.subject;
     subject.title = ev.target.textContent;
-    this.notesService.updateNote(subject);
+    this.subjectService.updateSubject(subject);
   }
 
   handleSummaryChange(ev) {

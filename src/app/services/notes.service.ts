@@ -31,7 +31,6 @@ export class NotesService {
   }
 
   getNote(noteId: string): Observable<Note> {
-    const u = this.auth.user;
     return this.afs.doc<Note>(`notes/${noteId}`).valueChanges();
   }
 
