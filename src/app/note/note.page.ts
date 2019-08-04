@@ -30,13 +30,21 @@ export class NotePage {
     if (!noteId && subjectId) {
       this.creatingNew = true;
       this.subjectId = subjectId;
-      this.note = {
-        title: this.title,
-      };
     } else {
       this.noteId = noteId;
       this.getNote(noteId);
     }
+  }
+
+  initEditor() {
+    const autolist = new ListAuto();
+    this.editor = new MediumEditor('.medium-editor', {
+      extensions: { autolist },
+      toolbar: {
+        buttons: ['bold', 'italic', 'underline', 'unorderedlist', 'orderedlist', 'h3'],
+        diffTop: 70,
+      }
+    });
   }
 
   getNote(id: string) {
@@ -51,24 +59,8 @@ export class NotePage {
     });
   }
 
-  initEditor() {
-    const autolist = new ListAuto();
-    this.editor = new MediumEditor('.medium-editor', {
-      extensions: { autolist },
-      toolbar: {
-          buttons: ['bold', 'italic', 'underline', 'unorderedlist', 'orderedlist', 'h3']
-      }
-    });
-  }
-
   handleTitleChange(ev) {
-    const note = this.note;
-    note.title = ev.target.textContent;
-    this.notesService.updateNote(this.note);
-  }
-
-  handleContextMenu(e: Event) {
-    e.preventDefault();
+    this.title = ev.target.textContent;
   }
 
   ionViewWillLeave() {
@@ -84,11 +76,12 @@ export class NotePage {
 
   async createNote(content: string) {
     if (!content) return;
-    await this.notesService.createNote(this.note.title, content, this.subjectId);
+    await this.notesService.createNote(this.title, content, this.subjectId);
   }
 
-  saveNote(content: string) {
+  async saveNote(content: string) {
+    this.note.title = this.title;
     this.note.content = content;
-    this.notesService.updateNote(this.note);
+    await this.notesService.updateNote(this.note);
   }
 }

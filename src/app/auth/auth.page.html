@@ -28,9 +28,9 @@
       <ion-label position="stacked">Password</ion-label>
       <ion-input [(ngModel)]="user.password" type="password"></ion-input>
     </ion-item>
+    <ion-text color="danger" class="ion-margin">{{ message }}</ion-text>
     <ion-button
       class="ion-padding-vertical"
-      expand="block"
       size="large"
       *ngIf="isSignUp"
       class="ion-padding-vertical"
@@ -54,7 +54,6 @@
     <ion-button
       expand="block"
       size="large"
-      class="ion-padding-vertical"
       (click)="logOut()"
     >
       Log Out
@@ -62,7 +61,7 @@
   </ng-template>
   <div>
     <ion-button (click)="changeAuthType()" fill="clear">
-      {{ isSignUp && "Sign In" || "Sign Up" }}
+      {{ isSignUp && "Sign In instead" || "Sign Up instead" }}
     </ion-button>
   </div>
 </ion-content>

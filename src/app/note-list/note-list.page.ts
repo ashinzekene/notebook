@@ -28,7 +28,7 @@ export class NoteListPage {
     this.loading = true;
     const subjectId = this.route.snapshot.paramMap.get('id');
     this.subjectId = subjectId;
-    this.getNote(subjectId);
+    this.getNotes(subjectId);
     this.getSubject(subjectId);
   }
 
@@ -44,7 +44,7 @@ export class NoteListPage {
     this.subjectService.updateSubject(subject);
   }
 
-  getNote(subjectId: string) {
+  getNotes(subjectId: string) {
     this.subscription = this.notesService.getSubjectNotes(subjectId)
       .subscribe(n => {
         this.loading = false;

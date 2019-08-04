@@ -9,6 +9,7 @@ import { AuthService } from '../services/auth.service';
 export class AuthPage {
   isAuthenticated = false;
   isSignUp = true;
+  message: string;
   user = {
     email: '',
     name: '',
@@ -39,7 +40,11 @@ export class AuthPage {
 
   async logIn() {
     const {email, password} = this.user;
-    await this.auth.signIn(email, password);
+    try {
+      await this.auth.signIn(email, password);
+    } catch (err) {
+      this.message = err.message;
+    }
     this.setAuthState();
   }
 

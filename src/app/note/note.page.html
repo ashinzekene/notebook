@@ -4,8 +4,8 @@
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
   </ion-buttons>
-  <ion-title contenteditable color="primary">
-    <h3 (blur)="handleTitleChange($event)" tabindex="0"  contenteditable="true">
+  <ion-title color="primary">
+    <h3 (blur)="handleTitleChange($event)" tabindex="0" contenteditable="true">
       {{ title }}
     </h3>
   </ion-title>
@@ -14,5 +14,5 @@
 <ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
 
 <ion-content class="ion-padding">
-  <div class="medium-editor" (contextmenu)="handleContextMenu($event)"></div>
+  <div class="medium-editor"></div>
 </ion-content>
