@@ -17,6 +17,10 @@ ion-card.note {
   }
   ion-card-content {
     max-height: 100px;
+    color: var(--subject-text-color);
+    p {
+      color: var(--subject-text-color);
+    }
   }
 }
 

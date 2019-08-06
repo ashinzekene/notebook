@@ -58,4 +58,7 @@ ion-card.subject {
   ion-card-title {
     font-weight: 700;
   }
+  ion-card-content {
+    color: var(--subject-text-color);
+  }
 }

@@ -99,7 +99,7 @@ export class NotePage {
 
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Albums',
+      header: 'Options',
       buttons: [{
         text: 'Delete',
         role: 'destructive',

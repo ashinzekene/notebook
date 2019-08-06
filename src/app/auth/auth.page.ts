@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { SettingsService } from '../services/settings.service';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +18,11 @@ export class AuthPage {
     password: '',
   };
 
-  constructor(private auth: AuthService) { }
+  constructor(
+    private auth: AuthService,
+    private settings: SettingsService,
+    public actionSheetController: ActionSheetController
+  ) { }
 
   async ionViewDidEnter() {
     await this.auth.initializeAuth();
@@ -50,6 +56,34 @@ export class AuthPage {
 
   setAuthState() {
     this.isAuthenticated = !!this.auth.user;
+  }
+
+  async presentThemeSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Set theme',
+      buttons: [{
+        text: 'Dark',
+        handler: () => {
+          this.settings.changeTheme('dark');
+        }
+      }, {
+        text: 'Light',
+        handler: () => {
+          this.settings.changeTheme('light');
+        }
+      }, {
+        text: 'Blue',
+        handler: () => {
+          this.settings.changeTheme('blue');
+        }
+      }, {
+        text: 'Purple',
+        handler: () => {
+          this.settings.changeTheme('purple');
+        }
+      }]
+    });
+    await actionSheet.present();
   }
 
 }
