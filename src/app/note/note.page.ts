@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import MediumEditor from 'medium-editor';
 import { ActivatedRoute } from '@angular/router';
 import { ActionSheetController, AlertController } from '@ionic/angular';
@@ -23,10 +24,11 @@ export class NotePage {
   note: Partial<Note>;
   subscription: Subscription;
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private notesService: NotesService,
-    public actionSheetController: ActionSheetController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public actionSheetController: ActionSheetController
   ) {}
 
   ionViewDidEnter() {
@@ -127,9 +129,10 @@ export class NotePage {
           text: 'Okay',
           role: 'destructive',
           cssClass: 'danger',
-          handler: () => {
-            this.notesService.deleteNote(this.noteId);
-            alert.dismiss();
+          handler: async () => {
+            await this.notesService.deleteNote(this.noteId);
+            await alert.dismiss();
+            this.router.navigateByUrl('/auth');
           }
         }
       ]
