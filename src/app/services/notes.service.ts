@@ -16,6 +16,7 @@ export class NotesService {
     return this.afs.collection<Note>(
       'notes',
       ref => ref.where('userId', '==', u.uid)
+      .where('deleted', '==', false)
       .orderBy('dateModified', 'desc')
     ).valueChanges();
   }
@@ -25,6 +26,7 @@ export class NotesService {
     return this.afs.collection<Note>(
       'notes',
       ref => ref.where('subjectId', '==', subjectId)
+      .where('deleted', '==', false)
       .where('userId', '==', u.uid)
       .orderBy('dateModified', 'desc')
     ).valueChanges();
@@ -41,6 +43,12 @@ export class NotesService {
     });
   }
 
+  deleteNote(noteID: string) {
+    return this.afs.doc<Note>(`notes/${noteID}`).update({
+      deleted: true,
+    });
+  }
+
   createNote(title: string, content: string, subjectId: string) {
     const id = this.afs.createId();
     return this.afs.collection<Note>('notes').doc(id).set({
@@ -49,6 +57,7 @@ export class NotesService {
       content,
       subjectId,
       userId: this.auth.user.uid,
+      deleted: false,
       dateCreated: (new Date()).toISOString(),
       dateModified: (new Date()).toISOString(),
     });

@@ -6,6 +6,7 @@ export interface Note {
   content: string;
   dateCreated?: string;
   dateModified?: string;
+  deleted?: boolean;
 }
 
 export const notes: Note[] = [

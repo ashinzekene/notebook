@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import MediumEditor from 'medium-editor';
 import { ActivatedRoute } from '@angular/router';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 
 import { NotesService } from '../services/notes.service';
 import { Note } from '../models/notes';
@@ -21,7 +22,12 @@ export class NotePage {
   loading = false;
   note: Partial<Note>;
   subscription: Subscription;
-  constructor(private route: ActivatedRoute, private notesService: NotesService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private notesService: NotesService,
+    public actionSheetController: ActionSheetController,
+    public alertController: AlertController
+  ) {}
 
   ionViewDidEnter() {
     this.initEditor();
@@ -74,6 +80,10 @@ export class NotePage {
     this.subscription.unsubscribe();
   }
 
+  showDeleteModal() {
+    this.presentActionSheet();
+  }
+
   async createNote(content: string) {
     if (!content) return;
     await this.notesService.createNote(this.title, content, this.subjectId);
@@ -83,5 +93,47 @@ export class NotePage {
     this.note.title = this.title;
     this.note.content = content;
     await this.notesService.updateNote(this.note);
+  }
+
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Albums',
+      buttons: [{
+        text: 'Delete',
+        role: 'destructive',
+        icon: 'trash',
+        handler: () => {
+          this.presentAlertConfirm();
+        }
+      }, {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+      }]
+    });
+    await actionSheet.present();
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Delete?',
+      message: 'Do you really want to delete this note?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }, {
+          text: 'Okay',
+          role: 'destructive',
+          cssClass: 'danger',
+          handler: () => {
+            this.notesService.deleteNote(this.noteId);
+            alert.dismiss();
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 }

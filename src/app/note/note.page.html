@@ -9,6 +9,9 @@
       {{ title }}
     </h3>
   </ion-title>
+  <ion-button (click)="showDeleteModal()" fill="clear" slot="end">
+    Options
+  </ion-button>
 </ion-toolbar>
 
 <ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
