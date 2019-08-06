@@ -7,7 +7,9 @@ ion-card.note {
   box-shadow: 1px 1px 7px 0px rgba($color: #999999, $alpha: 0.2);
   margin-bottom: 20px;
   border-radius: 12px;
+  transition: 400ms all;
   &:hover {
+    transform: translateY(-3px);
     box-shadow: 1px 1px 10px 0px rgba($color: #999999, $alpha: 0.5);
   }
   ion-card-title {

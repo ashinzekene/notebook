@@ -2,26 +2,3 @@ ion-title:focus {
   outline: none;
   border-bottom: 1px solid rgba($color: #777777, $alpha: 0.3);
 }
-
-.medium-editor {
- font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;
- line-height: 1.2;
- height: 100%;
-  &:focus, *:focus {
-    outline: none;
-  }
-  p {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;
-    line-height: 1.3;
-    margin: 10px 0;
-  }
-}
-
-.medium-editor-toolbar.medium-toolbar-arrow-under:after {
-  top: -8px !important;
-  transform: rotateZ(180deg) !important;
-}
-
-ion-content {
-  --padding-top: -10px;
-}
