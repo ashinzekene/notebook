@@ -76,6 +76,7 @@ export class NotePage {
     if (this.creatingNew) {
       this.createNote(content);
     } else {
+      if (this.nothingChanged(content)) return;
       this.saveNote(content);
     }
     this.editor.destroy();
@@ -95,6 +96,10 @@ export class NotePage {
     this.note.title = this.title;
     this.note.content = content;
     await this.notesService.updateNote(this.note);
+  }
+
+  nothingChanged(content: any) {
+    return this.note.content === content;
   }
 
   async presentActionSheet() {
