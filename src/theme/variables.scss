@@ -81,17 +81,6 @@
   --medium-text-color: #111111
 }
 
-:root {
-  .light {
-    --ion-text-color: #000;
-    --ion-background-color: #f1f1f1;
-
-    --subject-background-color: #ffffff;
-    --subject-text-color: #636363;
-
-    --medium-text-color: #111111
-  }
-}
 
 :root {
   .dark {
@@ -105,12 +94,56 @@
 }
 
 :root {
-  .purple {
-    --ion-color-primary: #e200d3;
-    --ion-color-primary-rgb: 251,0,236;
+  .pink {
+    --ion-color-primary: #5644fa;
+    --ion-color-primary-rgb: 77,58,255;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255,255,255;
+    --ion-color-primary-shade: #4433e0;
+    --ion-color-primary-tint: #5f4eff;
+  }
+}
+
+:root {
+  .pink {
+    --ion-color-primary: #d102c3;
+    --ion-color-primary-rgb: 209,2,195;
     --ion-color-primary-contrast: #ffffff;
     --ion-color-primary-contrast-rgb: 255,255,255;
     --ion-color-primary-shade: #c003b3;
     --ion-color-primary-tint: #e90fde;
+  }
+}
+
+:root {
+  .black {
+    --ion-color-primary: #000000;
+    --ion-color-primary-rgb: 0,0,0;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255,255,255;
+    --ion-color-primary-shade: #161616;
+    --ion-color-primary-tint: #353535;
+  }
+}
+
+:root {
+  .red {
+    --ion-color-primary: #e2382c;
+    --ion-color-primary-rgb: 226,56,44;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255,255,255;
+    --ion-color-primary-shade: #f34c1a;
+    --ion-color-primary-tint: #ff4128;
+  }
+}
+
+:root {
+  .green {
+    --ion-color-primary: #019626;
+    --ion-color-primary-rgb: 0,182,45;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255,255,255;
+    --ion-color-primary-shade: #09b803;
+    --ion-color-primary-tint: #2ddf00;
   }
 }

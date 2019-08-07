@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { SettingsService } from '../services/settings.service';
 import { ActionSheetController } from '@ionic/angular';
+import { themes, AppTheme } from '../models/settings';
 
 @Component({
   selector: 'app-auth',
@@ -61,27 +62,10 @@ export class AuthPage {
   async presentThemeSheet() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Set theme',
-      buttons: [{
-        text: 'Dark',
-        handler: () => {
-          this.settings.changeTheme('dark');
-        }
-      }, {
-        text: 'Light',
-        handler: () => {
-          this.settings.changeTheme('light');
-        }
-      }, {
-        text: 'Blue',
-        handler: () => {
-          this.settings.changeTheme('blue');
-        }
-      }, {
-        text: 'Purple',
-        handler: () => {
-          this.settings.changeTheme('purple');
-        }
-      }]
+      buttons: Object.keys(themes).map((theme: AppTheme) => ({
+        text: themes[theme],
+        handler: () => this.settings.changeTheme(theme)
+      })),
     });
     await actionSheet.present();
   }

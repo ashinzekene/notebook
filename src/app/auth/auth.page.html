@@ -1,14 +1,14 @@
 <ion-toolbar>
   <ion-buttons slot="start">
-    <ion-button [routerLink]="['/']">
+    <ion-button color="primary" [routerLink]="['/']">
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
   </ion-buttons>
   <ion-title color="primary">Auth Page</ion-title>
 </ion-toolbar>
 
-<ion-content class="ion-padding-horizontal">
-  <ion-text class="ion-padding-vertical text">
+<ion-content>
+  <ion-text color="primary" class="ion-padding-vertical text">
     <h2>Welcome to Notes. Pen things down by subjects</h2>
   </ion-text>
   <ng-container
@@ -53,7 +53,6 @@
   <ng-template #authenticated>
     <ion-button
       expand="block"
-      size="large"
       (click)="logOut()"
     >
       Log Out
@@ -66,7 +65,6 @@
   </div>
   <ion-button
     expand="block"
-    size="large"
     (click)="presentThemeSheet()"
   >
     Set Theme
