@@ -84,17 +84,28 @@
 
 :root {
   .dark {
+    --ion-color-primary: #eeeeee;
+    --ion-color-primary-rgb: 255,255,255;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255,255,255;
+    --ion-color-primary-shade: #eeeeee;
+    --ion-color-primary-tint: #eeeeee;
+
     --ion-text-color: #cccccc;
     --ion-background-color: #141414;
+    --ion-background-color-rgb: 20,20,20;
+    --ion-backdrop-color: #040404;
+    
     --subject-background-color: #000000;
     --subject-text-color: #939393;
 
     --medium-text-color: #cccccc
   }
+
 }
 
 :root {
-  .pink {
+  .purple {
     --ion-color-primary: #5644fa;
     --ion-color-primary-rgb: 77,58,255;
     --ion-color-primary-contrast: #ffffff;

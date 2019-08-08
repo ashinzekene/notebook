@@ -28,9 +28,7 @@
   <ion-card class="ion-margin-vertical note" [routerLink]="['/note/'+ note.id]" *ngFor="let note of notes">
     <ion-card-header>
       <ion-card-subtitle *ngIf="!!note.subject">{{ note.subject.title }}</ion-card-subtitle>
-      <ion-card-title color="primary">
-        <h1>{{ note.title }}</h1>
-      </ion-card-title>
+      <ion-card-title color="primary">{{ note.title }}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content [innerHTML]="note.content"></ion-card-content>

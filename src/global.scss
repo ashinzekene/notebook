@@ -51,3 +51,10 @@
     padding-right: calc((100vw - 890px) / 2);
   }
 }
+
+
+.dark { 
+  ion-fab-button {
+    --background: var(----ion-background-color);
+  }
+}

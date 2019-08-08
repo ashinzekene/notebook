@@ -45,6 +45,8 @@ export class SettingsService {
     this.renderer.removeClass(window.document.body, this.config.theme);
     this.config.theme = theme;
     this.renderer.addClass(window.document.body, theme);
+    const manifestEl = window.document.querySelector('link[rel=manifest]');
+    this.renderer.setAttribute(manifestEl, 'href', `manifest-${theme}.webmanifest`);
   }
 
   clearConfig() {

@@ -32,7 +32,13 @@
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               },
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/manifest-blue.webmanifest",
+              "src/manifest-dark.webmanifest",
+              "src/manifest-green.webmanifest",
+              "src/manifest-pink.webmanifest",
+              "src/manifest-purple.webmanifest",
+              "src/manifest-red.webmanifest"
             ],
             "styles": [
               {
