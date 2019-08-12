@@ -22,6 +22,7 @@ export class NotePage {
   title = 'Title';
   loading = false;
   note: Partial<Note>;
+  saveInterval: Number;
   subscription: Subscription;
   constructor(
     private router: Router,
@@ -64,6 +65,7 @@ export class NotePage {
       this.subjectId = note.subjectId;
       this.editor.setContent(note.content);
       this.loading = false;
+      setInterval(() => this.saveNote(), 4000);
     });
   }
 
@@ -72,14 +74,18 @@ export class NotePage {
   }
 
   ionViewWillLeave() {
+    this.saveNote();
+    this.editor.destroy();
+    this.subscription.unsubscribe();
+  }
+
+  saveNote() {
     const content = this.editor.getContent();
     if (this.creatingNew) {
       this.createNote(content);
     } else {
-      this.saveNote(content);
+      this.updateNote(content);
     }
-    this.editor.destroy();
-    this.subscription.unsubscribe();
   }
 
   showDeleteModal() {
@@ -91,7 +97,7 @@ export class NotePage {
     await this.notesService.createNote(this.title, content, this.subjectId);
   }
 
-  async saveNote(content: string) {
+  async updateNote(content: string) {
     if (this.nothingChanged(content)) return;
     this.note.title = this.title;
     this.note.content = content;
@@ -138,7 +144,7 @@ export class NotePage {
           handler: async () => {
             await this.notesService.deleteNote(this.noteId);
             await alert.dismiss();
-            this.router.navigateByUrl('/auth');
+            this.router.navigateByUrl(`/subject/${this.subjectId}`);
           }
         }
       ]
