@@ -43,8 +43,8 @@
 
 @media screen and (min-width: 890px) {
   ion-content {
-    --padding-start: calc((100vw - 890px) / 2);
-    --padding-end: calc((100vw - 890px) / 2);
+    --padding-start: calc((100vw - 890px) / 2) !important;
+    --padding-end: calc((100vw - 890px) / 2) !important;
   }
   .medium-editor {
     padding-left: calc((100vw - 890px) / 2);

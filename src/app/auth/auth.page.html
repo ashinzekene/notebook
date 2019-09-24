@@ -7,7 +7,7 @@
   <ion-title color="primary">Auth Page</ion-title>
 </ion-toolbar>
 
-<ion-content>
+<ion-content padding>
   <ion-text color="primary" class="ion-padding-vertical text">
     <h2>Welcome to Notes. Pen things down by subjects</h2>
   </ion-text>
@@ -29,41 +29,41 @@
       <ion-input [(ngModel)]="user.password" type="password"></ion-input>
     </ion-item>
     <ion-text color="danger" class="ion-margin">{{ message }}</ion-text>
-    <ion-button
-      class="ion-padding-vertical"
-      size="large"
-      *ngIf="isSignUp"
-      class="ion-padding-vertical"
-      (click)="signUp()"
-    >
-      Sign Up
-    </ion-button>
-    <ion-button
-      class="ion-padding-vertical"
-      expand="block"
-      size="large"
-      *ngIf="!isSignUp"
-      class="ion-padding-vertical"
-      (click)="logIn()"
-    >
-      Log In
-    </ion-button>
+
+    <ion-row class="ion-justify-content-between ion-padding-bottom" #notAuthenticated>
+      <ion-button
+        *ngIf="isSignUp"
+        [disabled]="loading"
+        (click)="signUp()"
+      >
+        Sign Up
+      </ion-button>
+      <ion-button
+        *ngIf="!isSignUp"
+        [disabled]="loading"
+        (click)="logIn()"
+      >
+        Log In
+      </ion-button>
+        
+      <ion-button (click)="changeAuthType()">
+        {{ isSignUp && "Log In instead" || "Sign Up instead" }}
+      </ion-button>
+    </ion-row>
   </ng-template>
 
   <ng-template #authenticated>
     <ion-button
+      class="ion-margin-bottom"
       expand="block"
       (click)="logOut()"
     >
       Log Out
     </ion-button>
   </ng-template>
-  <div>
-    <ion-button (click)="changeAuthType()" fill="clear">
-      {{ isSignUp && "Sign In instead" || "Sign Up instead" }}
-    </ion-button>
-  </div>
+  
   <ion-button
+    class="ion-margin-top"
     expand="block"
     (click)="presentThemeSheet()"
   >

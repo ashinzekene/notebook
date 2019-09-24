@@ -22,7 +22,7 @@ export class NotePage {
   title = 'Title';
   loading = false;
   note: Partial<Note>;
-  saveInterval: Number;
+  saveInterval: number;
   subscription: Subscription;
   constructor(
     private router: Router,
@@ -65,16 +65,17 @@ export class NotePage {
       this.subjectId = note.subjectId;
       this.editor.setContent(note.content);
       this.loading = false;
-      setInterval(() => this.saveNote(), 4000);
+      this.saveInterval = window.setInterval(() => this.saveNote(), 4000);
     });
   }
 
-  handleTitleChange(ev) {
-    this.title = ev.target.textContent;
+  handleTitleChange(ev: Event) {
+    this.title = (ev.target as HTMLElement).textContent;
   }
 
   ionViewWillLeave() {
     this.saveNote();
+    clearInterval(this.saveInterval);
     this.editor.destroy();
     this.subscription.unsubscribe();
   }

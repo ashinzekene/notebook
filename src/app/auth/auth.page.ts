@@ -10,20 +10,21 @@ import { themes, AppTheme } from '../models/settings';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage {
-  isAuthenticated = false;
-  isSignUp = true;
-  message: string;
-  user = {
-    email: '',
-    name: '',
-    password: '',
-  };
 
   constructor(
     private auth: AuthService,
     private settings: SettingsService,
     public actionSheetController: ActionSheetController
   ) { }
+  isAuthenticated = false;
+  isSignUp = true;
+  loading = false;
+  message: string;
+  user = {
+    email: '',
+    name: '',
+    password: '',
+  };
 
   async ionViewDidEnter() {
     await this.auth.initializeAuth();
@@ -40,23 +41,34 @@ export class AuthPage {
   }
 
   async signUp() {
-    const {email, name, password} = this.user;
-    await this.auth.signUp(email, password, name);
-    this.setAuthState();
+    this.handleRequest('signup', this.user);
   }
 
-  async logIn() {
-    const {email, password} = this.user;
-    try {
-      await this.auth.signIn(email, password);
-    } catch (err) {
-      this.message = err.message;
-    }
-    this.setAuthState();
+  logIn() {
+    this.handleRequest('login', this.user);
   }
 
   setAuthState() {
     this.isAuthenticated = !!this.auth.user;
+  }
+
+  async handleRequest(
+    type: 'signup' | 'login',
+    { name, email, password }: { name ?: string, email: string, password: string }
+  ) {
+    this.loading = true;
+    this.message = '';
+    try {
+      if (type === 'login') {
+        await this.auth.signIn(email, password);
+      } else {
+        await this.auth.signUp(email, password, name);
+      }
+    } catch (err) {
+      this.message = err.message;
+    }
+    this.loading = true;
+    this.setAuthState();
   }
 
   async presentThemeSheet() {
