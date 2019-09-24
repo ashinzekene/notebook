@@ -2,3 +2,7 @@ ion-title:focus {
   outline: none;
   border-bottom: 1px solid rgba($color: #777777, $alpha: 0.3);
 }
+
+ion-content {
+  --padding-bottom: 100px;
+}

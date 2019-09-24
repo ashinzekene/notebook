@@ -49,6 +49,7 @@ export class NotePage {
     const autolist = new ListAuto();
     this.editor = new MediumEditor('.medium-editor', {
       extensions: { autolist },
+      autoLink: true,
       toolbar: {
         buttons: ['bold', 'italic', 'underline', 'unorderedlist', 'orderedlist', 'h3'],
         diffTop: 70,
