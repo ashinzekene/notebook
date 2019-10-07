@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1570426322504,
+  "timestamp": 1570427189785,
   "index": "/notebook/index.html",
   "assetGroups": [
     {
@@ -188,6 +188,13 @@
         "/notebook/es2015-polyfills.30de7a2f7a97fe51cd0a.js",
         "/notebook/index.html",
         "/notebook/main.3689ded23480b61c1206.js",
+        "/notebook/manifest-blue.webmanifest",
+        "/notebook/manifest-dark.webmanifest",
+        "/notebook/manifest-green.webmanifest",
+        "/notebook/manifest-pink.webmanifest",
+        "/notebook/manifest-purple.webmanifest",
+        "/notebook/manifest-red.webmanifest",
+        "/notebook/manifest.webmanifest",
         "/notebook/polyfills.9ccc9e25ed7d36fbe127.js",
         "/notebook/runtime.762f77e608a236584579.js",
         "/notebook/styles.942bd2293f47712ff950.css"
@@ -407,6 +414,13 @@
     "/notebook/es2015-polyfills.30de7a2f7a97fe51cd0a.js": "7570d00147578b3761d7f98d057bead1ef857c57",
     "/notebook/index.html": "bab07c99097f8a73599e36ac20e317ed3f0ea03f",
     "/notebook/main.3689ded23480b61c1206.js": "7291f316e2e589809e7ea182bb4158868a6d5f18",
+    "/notebook/manifest-blue.webmanifest": "1231772598955995696e138188a66c1c0d013429",
+    "/notebook/manifest-dark.webmanifest": "fc2d790361783d00799669c6620d4ed40c1f6b1f",
+    "/notebook/manifest-green.webmanifest": "af6c7507ec21c5a79bbd05bd5c8c35b6c748b3ae",
+    "/notebook/manifest-pink.webmanifest": "c7c9313d90c07b1ac9f253d219d4ed8436599d14",
+    "/notebook/manifest-purple.webmanifest": "edfb540881ea0df48ae0c8dde6fe6218463ec4c4",
+    "/notebook/manifest-red.webmanifest": "85dcb82ca01421b4def36d0283d15b9bc6c8d120",
+    "/notebook/manifest.webmanifest": "1231772598955995696e138188a66c1c0d013429",
     "/notebook/polyfills.9ccc9e25ed7d36fbe127.js": "1719b733a191643a900b0df274abd7593fed160c",
     "/notebook/runtime.762f77e608a236584579.js": "ac2f15aea58dce34339b102ff4d22f9f1a149e00",
     "/notebook/styles.942bd2293f47712ff950.css": "4cd7702f59f20ead7a00625547a0f2fb56da395d"
