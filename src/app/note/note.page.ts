@@ -22,7 +22,6 @@ export class NotePage {
   title = 'Title';
   loading = false;
   note: Partial<Note>;
-  saveInterval: number;
   subscription: Subscription;
   constructor(
     private router: Router,
@@ -66,7 +65,6 @@ export class NotePage {
       this.subjectId = note.subjectId;
       this.editor.setContent(note.content);
       this.loading = false;
-      this.saveInterval = window.setInterval(() => this.saveNote(), 4000);
     });
   }
 
@@ -76,7 +74,6 @@ export class NotePage {
 
   ionViewWillLeave() {
     this.saveNote();
-    clearInterval(this.saveInterval);
     this.editor.destroy();
     this.subscription.unsubscribe();
   }
@@ -100,7 +97,7 @@ export class NotePage {
   }
 
   async updateNote(content: string) {
-    if (this.nothingChanged(content)) return;
+    if (this.nothingChanged(content) || !content) return;
     this.note.title = this.title;
     this.note.content = content;
     await this.notesService.updateNote(this.note);
