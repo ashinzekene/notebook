@@ -42,6 +42,7 @@ export class NotePage {
       this.noteId = noteId;
       this.getNote(noteId);
     }
+    document.addEventListener('visibilitychange', () => this.handleVisibilityChange(this));
   }
 
   initEditor() {
@@ -76,6 +77,13 @@ export class NotePage {
     this.saveNote();
     this.editor.destroy();
     this.subscription.unsubscribe();
+    document.addEventListener('visibilitychange', this.handleVisibilityChange);
+  }
+
+  handleVisibilityChange(self) {
+    if (document.hidden) {
+      self.saveNote();
+    }
   }
 
   saveNote() {
