@@ -30,6 +30,13 @@
         </ion-card-content>
       </ion-card>
   </ion-col>
+  
+  <div *ngIf="notes?.length === 0" class="empty">
+    <object class="no-subjects ion-padding-bottom" data="../../assets/svgs/no-subjects.svg"></object>
+    <ion-text color="primary ion-padding-top ion-text-center">
+      <h4>You currently have no subjects</h4>
+    </ion-text>
+  </div>
 
   <ion-card [routerLink]="['/subject/'+subject.id]" class="subject" *ngFor="let subject of subjects;">
     <ion-card-header>

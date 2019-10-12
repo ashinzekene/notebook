@@ -18,21 +18,21 @@
     <p contenteditable (blur)="handleSummaryChange($event)">{{ subject?.summary }}</p>
   </ion-text>
   
-  <div *ngIf="notes?.length == 0" class="empty">
-    <ion-icon color="primary" name="book"></ion-icon>
-    <ion-text color="primary">
+  <div *ngIf="notes?.length >= 0" class="empty">
+    <object class="no-notes ion-padding-bottom" data="../../assets/svgs/no-notes.svg"></object>
+    <ion-text color="primary ion-padding-top ion-text-center">
       <h4>No notes in this subject</h4>
     </ion-text>
   </div>
   
-  <ion-card class="ion-margin-vertical note" [routerLink]="['/note/'+ note.id]" *ngFor="let note of notes">
+  <!-- <ion-card class="ion-margin-vertical note" [routerLink]="['/note/'+ note.id]" *ngFor="let note of notes">
     <ion-card-header>
       <ion-card-subtitle *ngIf="!!note.subject">{{ note.subject.title }}</ion-card-subtitle>
       <ion-card-title color="primary">{{ note.title }}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content [innerHTML]="note.content"></ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button [routerLink]="['/note/'+subjectId + '/new']" translucent>
