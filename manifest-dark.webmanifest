@@ -4,7 +4,7 @@
   "background_color": "#161616",
   "display": "standalone",
   "orientation": "portrait",
-  "start_url": "notebook",
+  "start_url": "/",
   "theme_color": "#161616",
   "icons": [{
     "src": "assets/icon/mipmap-mdpi/ic_launcher.png",
