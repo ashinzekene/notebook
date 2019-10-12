@@ -14,8 +14,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/notebook/",
-            "deployUrl": "https://ashinzekene.github.io/notebook/",
+            "baseHref": "/",
+            "deployUrl": "https://ashinzekene-notebook.netlify.com/",
             "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",

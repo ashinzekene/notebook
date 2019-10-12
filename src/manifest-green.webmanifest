@@ -3,7 +3,7 @@
   "name": "Note Book",
   "background_color": "#019626",
   "display": "standalone",
-  "start_url": "notebook",
+  "start_url": "/",
   "orientation": "portrait",
   "theme_color": "#019626",
   "icons": [{
