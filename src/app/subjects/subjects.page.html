@@ -31,7 +31,7 @@
       </ion-card>
   </ion-col>
   
-  <div *ngIf="notes?.length === 0" class="empty">
+  <div *ngIf="subjects?.length === 0 && !loading" class="empty">
     <object class="no-subjects ion-padding-bottom" data="../../assets/svgs/no-subjects.svg"></object>
     <ion-text color="primary ion-padding-top ion-text-center">
       <h4>You currently have no subjects</h4>
