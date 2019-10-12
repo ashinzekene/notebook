@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1570899301033,
+  "timestamp": 1570904575579,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -82,7 +82,7 @@
         "/167.ae198e6ff33df6e34658.js",
         "/168.c39d79e8f57020369d6d.js",
         "/169.90270eea752008e51320.js",
-        "/17.f409a94af788f0d1b5ea.js",
+        "/17.ed9263d80245c56c0c6b.js",
         "/170.62612e7cbe83f1658eef.js",
         "/171.09414d5dbf00cd1e48ca.js",
         "/172.b110e94a5e5185e8c3ca.js",
@@ -93,7 +93,7 @@
         "/177.84e53b161ad228fe3db1.js",
         "/178.6084ff9f6b6a0fa7824c.js",
         "/179.41f282d57927ea1c2414.js",
-        "/18.3b77d8946f61e39a6e7c.js",
+        "/18.41782fbaa853d7c106ce.js",
         "/180.016fe9319dae95c4035e.js",
         "/181.595e9c6c42d09a1b2d2c.js",
         "/19.d65cd798628853e60401.js",
@@ -196,7 +196,7 @@
         "/manifest-red.webmanifest",
         "/manifest.webmanifest",
         "/polyfills.9ccc9e25ed7d36fbe127.js",
-        "/runtime.4f11f5ad65f976c3417f.js",
+        "/runtime.302ce992caa220b8f213.js",
         "/styles.942bd2293f47712ff950.css"
       ],
       "patterns": []
@@ -216,7 +216,9 @@
         "/assets/icon/mipmap-xxhdpi/ic_launcher.png",
         "/assets/icon/mipmap-xxxhdpi/ic_launcher.png",
         "/assets/icon/playstore/icon.png",
-        "/assets/shapes.svg"
+        "/assets/shapes.svg",
+        "/assets/svgs/no-notes.svg",
+        "/assets/svgs/no-subjects.svg"
       ],
       "patterns": []
     }
@@ -297,7 +299,7 @@
     "/167.ae198e6ff33df6e34658.js": "533cea6ac8de270598044d45abbbc58478e1d6a5",
     "/168.c39d79e8f57020369d6d.js": "6ac4f1bed351051a74daa847b0e01f7b7552da4b",
     "/169.90270eea752008e51320.js": "6756cbdd22563f9bc8919c01eff61be7952d938a",
-    "/17.f409a94af788f0d1b5ea.js": "863066c582cac6c46b0ff1bb216b35981e81f144",
+    "/17.ed9263d80245c56c0c6b.js": "33a60ecfb6f5bec02dea72a26d38357e874b016a",
     "/170.62612e7cbe83f1658eef.js": "4cc4d6a26a47110b439cb0e68aec6c7be6bfb7dc",
     "/171.09414d5dbf00cd1e48ca.js": "b5bb308d8be10482d67f0176b9eeb53dbb536012",
     "/172.b110e94a5e5185e8c3ca.js": "9bc1316fe77d3b4e8d186f786043e4d09072a3d4",
@@ -308,7 +310,7 @@
     "/177.84e53b161ad228fe3db1.js": "095b6e5259a61a97d443586aaea135ff94d89d0c",
     "/178.6084ff9f6b6a0fa7824c.js": "dedd48f7fda2bbe6f03ad261d52cb0a229f95010",
     "/179.41f282d57927ea1c2414.js": "db8de3c323b15f19a433ef7c14b2cec1ab316b7b",
-    "/18.3b77d8946f61e39a6e7c.js": "9c67f8210532b31c16f347c1a966433678149ec0",
+    "/18.41782fbaa853d7c106ce.js": "eb17bb76fd16073527d482ed6902dbcab6f272b0",
     "/180.016fe9319dae95c4035e.js": "b87786b45c2b7dc50558f7670207ce15fb84bae4",
     "/181.595e9c6c42d09a1b2d2c.js": "5d2e7cb917195fa33cb931c58f24d1e160e678b6",
     "/19.d65cd798628853e60401.js": "785a93d686a5ef8c5291339f765ab42067627759",
@@ -410,9 +412,11 @@
     "/assets/icon/mipmap-xxxhdpi/ic_launcher.png": "0a23f809614050afab9a097cbc9a559557e58e38",
     "/assets/icon/playstore/icon.png": "94e4c563967763ca6bfcd4d087c5942c65aa296e",
     "/assets/shapes.svg": "5413e95adabcb2cb639970051f55e0ddb64ace53",
+    "/assets/svgs/no-notes.svg": "5ded458a3cc0a072faeaa8ee6a42c4909d3eb0e9",
+    "/assets/svgs/no-subjects.svg": "f9f1b6749b642eddbf4ace70dc7e2bd2ad6a160e",
     "/common.37e3263b083174d28d06.js": "4a222295eb014b8fba27797d5e0324fa74701f1e",
     "/es2015-polyfills.30de7a2f7a97fe51cd0a.js": "7570d00147578b3761d7f98d057bead1ef857c57",
-    "/index.html": "77389deede66bed5b8df493a7d7c784c2b9c052a",
+    "/index.html": "190e6e4a9888e9e0e10059ba8fbda472bbc5df51",
     "/main.3689ded23480b61c1206.js": "7291f316e2e589809e7ea182bb4158868a6d5f18",
     "/manifest-blue.webmanifest": "b5463f1d334f88b835b63b17c9e43b0d1435c288",
     "/manifest-dark.webmanifest": "1e056de98e31cb359ac7ffc275a4882ec6db0a99",
@@ -422,7 +426,7 @@
     "/manifest-red.webmanifest": "d3739c28155519cfcc83fd896168ebf74f9e56ea",
     "/manifest.webmanifest": "b5463f1d334f88b835b63b17c9e43b0d1435c288",
     "/polyfills.9ccc9e25ed7d36fbe127.js": "1719b733a191643a900b0df274abd7593fed160c",
-    "/runtime.4f11f5ad65f976c3417f.js": "8e4bfd6638ea8cdc4755d04a5aad8e916a687e7e",
+    "/runtime.302ce992caa220b8f213.js": "252385f732e27843c25352f5ac489b1a33747fcb",
     "/styles.942bd2293f47712ff950.css": "4cd7702f59f20ead7a00625547a0f2fb56da395d"
   },
   "navigationUrls": [
