@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1570904575579,
+  "timestamp": 1571044884186,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -194,7 +194,6 @@
         "/manifest-pink.webmanifest",
         "/manifest-purple.webmanifest",
         "/manifest-red.webmanifest",
-        "/manifest.webmanifest",
         "/polyfills.9ccc9e25ed7d36fbe127.js",
         "/runtime.302ce992caa220b8f213.js",
         "/styles.942bd2293f47712ff950.css"
@@ -424,7 +423,6 @@
     "/manifest-pink.webmanifest": "9ba99851adff149a734671ea9d83731a7faed814",
     "/manifest-purple.webmanifest": "23992b1a2055662779d4d1a905cce6ac5bbad3d8",
     "/manifest-red.webmanifest": "d3739c28155519cfcc83fd896168ebf74f9e56ea",
-    "/manifest.webmanifest": "b5463f1d334f88b835b63b17c9e43b0d1435c288",
     "/polyfills.9ccc9e25ed7d36fbe127.js": "1719b733a191643a900b0df274abd7593fed160c",
     "/runtime.302ce992caa220b8f213.js": "252385f732e27843c25352f5ac489b1a33747fcb",
     "/styles.942bd2293f47712ff950.css": "4cd7702f59f20ead7a00625547a0f2fb56da395d"
