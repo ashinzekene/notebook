@@ -32,7 +32,8 @@
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
               },
-              "src/manifest.webmanifest",
+              "src/_redirects",
+              "src/manifest.wzebmanifest",
               "src/manifest-blue.webmanifest",
               "src/manifest-dark.webmanifest",
               "src/manifest-green.webmanifest",
