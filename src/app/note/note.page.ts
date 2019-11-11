@@ -42,7 +42,7 @@ export class NotePage {
       this.noteId = noteId;
       this.getNote(noteId);
     }
-    document.addEventListener('visibilitychange', () => this.handleVisibilityChange(this));
+    document.addEventListener('visibilitychange', this.handleVisibilityChange.bind(this));
   }
 
   initEditor() {
@@ -77,12 +77,12 @@ export class NotePage {
     this.saveNote();
     this.editor.destroy();
     this.subscription.unsubscribe();
-    document.addEventListener('visibilitychange', this.handleVisibilityChange);
+    document.removeEventListener('visibilitychange', this.handleVisibilityChange.bind(this));
   }
 
-  handleVisibilityChange(self) {
+  handleVisibilityChange() {
     if (document.hidden) {
-      self.saveNote();
+      this.saveNote();
     }
   }
 
@@ -102,6 +102,11 @@ export class NotePage {
   async createNote(content: string) {
     if (!content) return;
     await this.notesService.createNote(this.title, content, this.subjectId);
+    this.note = {
+      title: this.title,
+      content: content
+    }
+    this.creatingNew = false;
   }
 
   async updateNote(content: string) {
