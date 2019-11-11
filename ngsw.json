@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1573452286686,
+  "timestamp": 1573453237565,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -187,13 +187,14 @@
         "/common.37e3263b083174d28d06.js",
         "/es2015-polyfills.30de7a2f7a97fe51cd0a.js",
         "/index.html",
-        "/main.3689ded23480b61c1206.js",
+        "/main.19d85c24f19e115f0f08.js",
         "/manifest-blue.webmanifest",
         "/manifest-dark.webmanifest",
         "/manifest-green.webmanifest",
         "/manifest-pink.webmanifest",
         "/manifest-purple.webmanifest",
         "/manifest-red.webmanifest",
+        "/manifest.webmanifest",
         "/polyfills.9ccc9e25ed7d36fbe127.js",
         "/runtime.2f208bc58ee5c30c2cad.js",
         "/styles.dd00149ee16c4cd34161.css"
@@ -415,14 +416,15 @@
     "/assets/svgs/no-subjects.svg": "f9f1b6749b642eddbf4ace70dc7e2bd2ad6a160e",
     "/common.37e3263b083174d28d06.js": "4a222295eb014b8fba27797d5e0324fa74701f1e",
     "/es2015-polyfills.30de7a2f7a97fe51cd0a.js": "7570d00147578b3761d7f98d057bead1ef857c57",
-    "/index.html": "a5d137cdd267a0ead0f62e55a1eccca7f4b92fdf",
-    "/main.3689ded23480b61c1206.js": "7291f316e2e589809e7ea182bb4158868a6d5f18",
+    "/index.html": "86865267deadcf6f6d779e99ebfac73ba58120a8",
+    "/main.19d85c24f19e115f0f08.js": "16044e482911e0b39a6052510dd06f77b53b57c8",
     "/manifest-blue.webmanifest": "b5463f1d334f88b835b63b17c9e43b0d1435c288",
     "/manifest-dark.webmanifest": "1e056de98e31cb359ac7ffc275a4882ec6db0a99",
     "/manifest-green.webmanifest": "43f5f0c4cc063a093a5f29a3044303f3253047c3",
     "/manifest-pink.webmanifest": "9ba99851adff149a734671ea9d83731a7faed814",
     "/manifest-purple.webmanifest": "23992b1a2055662779d4d1a905cce6ac5bbad3d8",
     "/manifest-red.webmanifest": "d3739c28155519cfcc83fd896168ebf74f9e56ea",
+    "/manifest.webmanifest": "b5463f1d334f88b835b63b17c9e43b0d1435c288",
     "/polyfills.9ccc9e25ed7d36fbe127.js": "1719b733a191643a900b0df274abd7593fed160c",
     "/runtime.2f208bc58ee5c30c2cad.js": "8281d96acdac40e51f532ecc993b18a1240e0aa4",
     "/styles.dd00149ee16c4cd34161.css": "ad22cba1902052c4dbefc8e65893ad87d5019219"
