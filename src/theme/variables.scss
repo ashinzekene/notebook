@@ -84,12 +84,12 @@
 
 :root {
   .dark {
-    --ion-color-primary: #6051e7;
-    --ion-color-primary-rgb: 37,58,255;
+    --ion-color-primary: #fafafa;
+    --ion-color-primary-rgb: 50, 250, 250;
     --ion-color-primary-contrast: #ffffff;
     --ion-color-primary-contrast-rgb: 255,255,255;
-    --ion-color-primary-shade: #4e3fcf;
-    --ion-color-primary-tint: #5351ce;
+    --ion-color-primary-shade: #eeeeee;
+    --ion-color-primary-tint: #ffffff;  
 
     --ion-text-color: #cccccc;
     --ion-background-color: #141414;
@@ -99,7 +99,16 @@
     --subject-background-color: #000000;
     --subject-text-color: #939393;
 
-    --medium-text-color: #cccccc
+    --medium-text-color: #cccccc;
+    ion-button {
+      --color: #040404;
+    }
+    ion-button[fill=clear] {
+      --color: #fafafa;
+    }
+    ion-fab-button {
+      --background: #000000;
+    }
   }
 
 }
