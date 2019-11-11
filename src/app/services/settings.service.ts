@@ -10,6 +10,7 @@ export class SettingsService {
   constructor(rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
     this.config = this.readConfig();
+    this.setTheme(this.config.theme)
   }
 
   initalizeSettings() {
@@ -41,7 +42,7 @@ export class SettingsService {
     this.saveConfig();
   }
 
-  setTheme(theme: AppTheme) {
+  setTheme(theme: AppTheme="blue") {
     this.renderer.removeClass(window.document.body, this.config.theme);
     this.config.theme = theme;
     this.renderer.addClass(window.document.body, theme);
