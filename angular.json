@@ -33,7 +33,7 @@
                 "output": "./svg"
               },
               "src/_redirects",
-              "src/manifest.wzebmanifest",
+              "src/manifest.webmanifest",
               "src/manifest-blue.webmanifest",
               "src/manifest-dark.webmanifest",
               "src/manifest-green.webmanifest",
